@@ -1,0 +1,34 @@
+# .gitignore
+# Copyright © 2019 Adrian Kashivskyy. All rights reserved.
+
+.DS_Store
+.Trashes
+.localized
+
+.build
+xcuserdata
+DerivedData
+
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+*.xccheckout
+*.xcuserstate
+*.xcscmblueprint
+*.moved-aside
+*.hmap
+*.o
+*.hmap
+*.ipa
+*.dSYM.zip
+
+.idea
+*.iml
+
+Pods
+Carthage
+Packages
+
+.fastlane/report.xml
+.fastlane/test_output
