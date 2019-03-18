@@ -1,0 +1,255 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C6180223D26150020FD3D /* AppDelegate.swift */; };
+		3A3C619A223D28210020FD3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C6199223D28210020FD3D /* Assets.xcassets */; };
+		3A3C619F223D2A1B0020FD3D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C619E223D2A1B0020FD3D /* Filter.swift */; };
+		3A3C61A7223D2D830020FD3D /* Capturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A6223D2D830020FD3D /* Capturer.swift */; };
+		3A3C61AA223D351A0020FD3D /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A9223D351A0020FD3D /* SwiftExtensions.swift */; };
+		3A3C61C2223FE3A10020FD3D /* ComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C1223FE3A10020FD3D /* ComparisonViewController.swift */; };
+		3A3C61C4223FE3C00020FD3D /* ComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */; };
+		3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C52240008D0020FD3D /* KnobView.swift */; };
+		3A3C61CA224042860020FD3D /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C9224042860020FD3D /* RenderView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3A3C6180223D26150020FD3D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A3C6184223D261E0020FD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A3C6198223D26530020FD3D /* Perception.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Perception.xcconfig; sourceTree = "<group>"; };
+		3A3C6199223D28210020FD3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A3C619E223D2A1B0020FD3D /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		3A3C61A6223D2D830020FD3D /* Capturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capturer.swift; sourceTree = "<group>"; };
+		3A3C61A9223D351A0020FD3D /* SwiftExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
+		3A3C61C1223FE3A10020FD3D /* ComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonViewController.swift; sourceTree = "<group>"; };
+		3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonView.swift; sourceTree = "<group>"; };
+		3A3C61C52240008D0020FD3D /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
+		3A3C61C9224042860020FD3D /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
+		3AAAB0C4223D25530072305E /* Perception.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perception.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AAAB0C1223D25530072305E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A3C617E223D26150020FD3D /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3A3C61BB223F9C9D0020FD3D /* Interface */,
+				3A3C61A5223D2D730020FD3D /* Capturing */,
+				3A3C619B223D29430020FD3D /* Filtering */,
+				3A3C61A2223D2A540020FD3D /* Rendering */,
+				3A3C61A8223D32DB0020FD3D /* Extensions */,
+				3A3C6180223D26150020FD3D /* AppDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3A3C6183223D261E0020FD3D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A3C6199223D28210020FD3D /* Assets.xcassets */,
+				3A3C6184223D261E0020FD3D /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3A3C6185223D26270020FD3D /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				3A3C6198223D26530020FD3D /* Perception.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
+		3A3C619B223D29430020FD3D /* Filtering */ = {
+			isa = PBXGroup;
+			children = (
+				3A3C619E223D2A1B0020FD3D /* Filter.swift */,
+			);
+			path = Filtering;
+			sourceTree = "<group>";
+		};
+		3A3C61A2223D2A540020FD3D /* Rendering */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rendering;
+			sourceTree = "<group>";
+		};
+		3A3C61A5223D2D730020FD3D /* Capturing */ = {
+			isa = PBXGroup;
+			children = (
+				3A3C61A6223D2D830020FD3D /* Capturer.swift */,
+			);
+			path = Capturing;
+			sourceTree = "<group>";
+		};
+		3A3C61A8223D32DB0020FD3D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3A3C61A9223D351A0020FD3D /* SwiftExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3A3C61BB223F9C9D0020FD3D /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				3A3C61C1223FE3A10020FD3D /* ComparisonViewController.swift */,
+				3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */,
+				3A3C61C52240008D0020FD3D /* KnobView.swift */,
+				3A3C61C9224042860020FD3D /* RenderView.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		3AAAB0BB223D25520072305E = {
+			isa = PBXGroup;
+			children = (
+				3A3C617E223D26150020FD3D /* Sources */,
+				3A3C6183223D261E0020FD3D /* Resources */,
+				3A3C6185223D26270020FD3D /* Configuration */,
+				3AAAB0C5223D25530072305E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3AAAB0C5223D25530072305E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AAAB0C4223D25530072305E /* Perception.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AAAB0C3223D25530072305E /* Perception */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AAAB0D6223D25540072305E /* Build configuration list for PBXNativeTarget "Perception" */;
+			buildPhases = (
+				3AAAB0C0223D25530072305E /* Sources */,
+				3AAAB0C1223D25530072305E /* Frameworks */,
+				3AAAB0C2223D25530072305E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Perception;
+			productName = Perception;
+			productReference = 3AAAB0C4223D25530072305E /* Perception.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3AAAB0BC223D25520072305E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Adrian Kashivskyy";
+				TargetAttributes = {
+					3AAAB0C3223D25530072305E = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 3AAAB0BF223D25520072305E /* Build configuration list for PBXProject "Perception" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3AAAB0BB223D25520072305E;
+			productRefGroup = 3AAAB0C5223D25530072305E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AAAB0C3223D25530072305E /* Perception */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AAAB0C2223D25530072305E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A3C619A223D28210020FD3D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AAAB0C0223D25530072305E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A3C61CA224042860020FD3D /* RenderView.swift in Sources */,
+				3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */,
+				3A3C61AA223D351A0020FD3D /* SwiftExtensions.swift in Sources */,
+				3A3C61C2223FE3A10020FD3D /* ComparisonViewController.swift in Sources */,
+				3A3C61C4223FE3C00020FD3D /* ComparisonView.swift in Sources */,
+				3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */,
+				3A3C619F223D2A1B0020FD3D /* Filter.swift in Sources */,
+				3A3C61A7223D2D830020FD3D /* Capturer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3AAAB0D4223D25540072305E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3AAAB0D7223D25540072305E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A3C6198223D26530020FD3D /* Perception.xcconfig */;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3AAAB0BF223D25520072305E /* Build configuration list for PBXProject "Perception" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AAAB0D4223D25540072305E /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		3AAAB0D6223D25540072305E /* Build configuration list for PBXNativeTarget "Perception" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AAAB0D7223D25540072305E /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3AAAB0BC223D25520072305E /* Project object */;
+}
