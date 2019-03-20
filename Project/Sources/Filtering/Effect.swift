@@ -42,10 +42,9 @@ internal struct Effect {
 
         let dimension = 64
 
-        var values = ContiguousArray<Float>(
-            repeating: 0,
-            count: dimension * dimension * dimension * 4
-        )
+        var values = with(ContiguousArray<Float>()) {
+            $0.reserveCapacity(dimension * dimension * dimension * 4)
+        }
 
         for b in 0 ..< dimension {
             for g in 0 ..< dimension {
