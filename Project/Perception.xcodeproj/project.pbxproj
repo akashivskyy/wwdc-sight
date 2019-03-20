@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C6180223D26150020FD3D /* AppDelegate.swift */; };
 		3A3C619A223D28210020FD3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C6199223D28210020FD3D /* Assets.xcassets */; };
-		3A3C619F223D2A1B0020FD3D /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C619E223D2A1B0020FD3D /* Filter.swift */; };
+		3A3C619F223D2A1B0020FD3D /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C619E223D2A1B0020FD3D /* Effect.swift */; };
 		3A3C61A7223D2D830020FD3D /* Capturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A6223D2D830020FD3D /* Capturer.swift */; };
 		3A3C61AA223D351A0020FD3D /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A9223D351A0020FD3D /* SwiftExtensions.swift */; };
 		3A3C61C2223FE3A10020FD3D /* ComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C1223FE3A10020FD3D /* ComparisonViewController.swift */; };
 		3A3C61C4223FE3C00020FD3D /* ComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */; };
 		3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C52240008D0020FD3D /* KnobView.swift */; };
 		3A3C61CA224042860020FD3D /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C9224042860020FD3D /* RenderView.swift */; };
+		3AB6230A2242A14300D874F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623092242A14300D874F8 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +24,7 @@
 		3A3C6184223D261E0020FD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3C6198223D26530020FD3D /* Perception.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Perception.xcconfig; sourceTree = "<group>"; };
 		3A3C6199223D28210020FD3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A3C619E223D2A1B0020FD3D /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		3A3C619E223D2A1B0020FD3D /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
 		3A3C61A6223D2D830020FD3D /* Capturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capturer.swift; sourceTree = "<group>"; };
 		3A3C61A9223D351A0020FD3D /* SwiftExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		3A3C61C1223FE3A10020FD3D /* ComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonViewController.swift; sourceTree = "<group>"; };
@@ -31,6 +32,7 @@
 		3A3C61C52240008D0020FD3D /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
 		3A3C61C9224042860020FD3D /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
 		3AAAB0C4223D25530072305E /* Perception.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perception.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AB623092242A14300D874F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +79,8 @@
 		3A3C619B223D29430020FD3D /* Filtering */ = {
 			isa = PBXGroup;
 			children = (
-				3A3C619E223D2A1B0020FD3D /* Filter.swift */,
+				3A3C619E223D2A1B0020FD3D /* Effect.swift */,
+				3AB623092242A14300D874F8 /* Colors.swift */,
 			);
 			path = Filtering;
 			sourceTree = "<group>";
@@ -203,13 +206,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AB6230A2242A14300D874F8 /* Colors.swift in Sources */,
 				3A3C61CA224042860020FD3D /* RenderView.swift in Sources */,
 				3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */,
 				3A3C61AA223D351A0020FD3D /* SwiftExtensions.swift in Sources */,
 				3A3C61C2223FE3A10020FD3D /* ComparisonViewController.swift in Sources */,
 				3A3C61C4223FE3C00020FD3D /* ComparisonView.swift in Sources */,
 				3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */,
-				3A3C619F223D2A1B0020FD3D /* Filter.swift in Sources */,
+				3A3C619F223D2A1B0020FD3D /* Effect.swift in Sources */,
 				3A3C61A7223D2D830020FD3D /* Capturer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
