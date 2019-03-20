@@ -24,11 +24,11 @@ internal final class RenderView: UIView, MTKViewDelegate {
 
     internal var filters: [CIFilter] = []
 
+    #if !targetEnvironment(simulator)
+
     private lazy var context: CIContext = {
         CIContext(mtlDevice: metalView.device!)
     }()
-
-    #if !targetEnvironment(simulator)
 
     private lazy var metalColorSpace = {
         CGColorSpaceCreateDeviceRGB()

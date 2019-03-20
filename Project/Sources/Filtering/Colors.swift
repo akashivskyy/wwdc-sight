@@ -126,7 +126,7 @@ internal struct LMSColor {
     // MARK: Transformation
 
     /// Apply deuteranopia color blindness transformation.
-    internal func deuteranopia() -> LMSColor {
+    internal func withDeuteranopia() -> LMSColor {
 
         let matrix = float3x3(rows: [
             float3(1, 0, 0),

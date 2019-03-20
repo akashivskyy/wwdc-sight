@@ -17,6 +17,9 @@
 		3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C52240008D0020FD3D /* KnobView.swift */; };
 		3A3C61CA224042860020FD3D /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C9224042860020FD3D /* RenderView.swift */; };
 		3AB6230A2242A14300D874F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623092242A14300D874F8 /* Colors.swift */; };
+		3AB6230C2242AE7A00D874F8 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230B2242AE7A00D874F8 /* Preset.swift */; };
+		3AB6230E2242AEAA00D874F8 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230D2242AEAA00D874F8 /* PreviewView.swift */; };
+		3AB623102242F0CA00D874F8 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230F2242F0CA00D874F8 /* SelectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		3A3C61C9224042860020FD3D /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
 		3AAAB0C4223D25530072305E /* Perception.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perception.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB623092242A14300D874F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		3AB6230B2242AE7A00D874F8 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
+		3AB6230D2242AEAA00D874F8 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		3AB6230F2242F0CA00D874F8 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,9 @@
 				3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */,
 				3A3C61C52240008D0020FD3D /* KnobView.swift */,
 				3A3C61C9224042860020FD3D /* RenderView.swift */,
+				3AB6230B2242AE7A00D874F8 /* Preset.swift */,
+				3AB6230D2242AEAA00D874F8 /* PreviewView.swift */,
+				3AB6230F2242F0CA00D874F8 /* SelectionView.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -208,6 +217,8 @@
 			files = (
 				3AB6230A2242A14300D874F8 /* Colors.swift in Sources */,
 				3A3C61CA224042860020FD3D /* RenderView.swift in Sources */,
+				3AB6230C2242AE7A00D874F8 /* Preset.swift in Sources */,
+				3AB6230E2242AEAA00D874F8 /* PreviewView.swift in Sources */,
 				3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */,
 				3A3C61AA223D351A0020FD3D /* SwiftExtensions.swift in Sources */,
 				3A3C61C2223FE3A10020FD3D /* ComparisonViewController.swift in Sources */,
@@ -215,6 +226,7 @@
 				3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */,
 				3A3C619F223D2A1B0020FD3D /* Effect.swift in Sources */,
 				3A3C61A7223D2D830020FD3D /* Capturer.swift in Sources */,
+				3AB623102242F0CA00D874F8 /* SelectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

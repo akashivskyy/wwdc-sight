@@ -89,22 +89,39 @@ internal struct Effect {
 
     // MARK: Color effects
 
-    /// Create a deuteranopia color blindness effect.
-    static func deuteranopia() -> Effect {
-        return .lut { $0.lms.deuteranopia().rgb }
+    internal static func darken(intensity: Float) -> Effect {
+        return concat(
+            filter(
+                name: "CIColorControls",
+                parameters: [
+                    "inputBrightness": (intensity - 0.5) * -0.25
+                ]
+            ),
+            filter(
+                name: "CIExposureAdjust",
+                parameters: [
+                    "inputEV": intensity * -4
+                ]
+            )
+        )
     }
 
     /// Create a desaturation effect.
     ///
     /// - Parameters:
     ///     - intensity: Desaturation intensity, `0...1`.
-    static func desaturation(intensity: Double) -> Effect {
-        return .filter(
+    static func desaturate(intensity: Float) -> Effect {
+        return filter(
             name: "CIColorControls",
             parameters: [
-                "inputSaturation": clamp(-intensity, within: 0...1)
+                "inputSaturation": clamp(1 - intensity, within: 0...1)
             ]
         )
+    }
+
+    /// Create a deuteranopia color blindness effect.
+    static func deuteranopize() -> Effect {
+        return lut { $0.lms.withDeuteranopia().rgb }
     }
 
     // MARK: Distortion effects
@@ -114,8 +131,17 @@ internal struct Effect {
     /// - Parameters:
     ///     - blur: Blur radius.
     static func blur(radius: Double) -> Effect {
-        return .filter(
+        return filter(
             name: "CIGaussianBlur",
+            parameters: [
+                "inputRadius": radius
+            ]
+        )
+    }
+
+    static func vignette(radius: Float) -> Effect {
+        return filter(
+            name: "CIVignette",
             parameters: [
                 "inputRadius": radius
             ]
@@ -126,9 +152,27 @@ internal struct Effect {
 
     /// Create a dog sight effect.
     static func dog() -> Effect {
-        return .concat(
-            deuteranopia(),
-            blur(radius: 6)
+        return concat(
+            deuteranopize(),
+            desaturate(intensity: 0.2),
+            blur(radius: 4)
+        )
+    }
+
+    static func cat(night: Bool = false) -> Effect {
+        return concat(
+            deuteranopize(),
+            darken(intensity: night ? 0.5 : 0),
+            desaturate(intensity: 0.2),
+            blur(radius: 2)
+        )
+    }
+
+    static func night(intensity: Float = 1) -> Effect {
+        return concat(
+            darken(intensity: intensity),
+            desaturate(intensity: intensity * 0.9),
+            vignette(radius: intensity * 2)
         )
     }
 

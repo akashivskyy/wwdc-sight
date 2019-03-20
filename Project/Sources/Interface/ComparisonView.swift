@@ -170,7 +170,7 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
 
     @objc private func panGestureRecognizerDidFire(_ gestureRecognizer: UIPanGestureRecognizer) {
         let newPosition = knobViewInitialPanningPosition + gestureRecognizer.translation(in: knobView).x
-        knobViewPosition = clamp(newPosition, within: 60 ... bounds.maxX - 60)
+        knobViewPosition = clamp(newPosition, within: 32 ... bounds.maxX - 32)
         setNeedsLayout()
     }
 

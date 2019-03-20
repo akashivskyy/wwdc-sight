@@ -11,14 +11,14 @@ import UIKit
 
     var c = Capturer(position: .back)
 
-    var v = RenderView()
-    var v2 = RenderView()
-    var vv = ComparisonView()
+    var v1 = PreviewView()
+    var v2 = PreviewView()
+    var cv = ComparisonView()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         c.start { buf, _ in
-            self.v.pixelBuffer = buf
+            self.v1.pixelBuffer = buf
             self.v2.pixelBuffer = buf
         }
 
@@ -28,19 +28,23 @@ import UIKit
         window!.rootViewController = vc
         window!.makeKeyAndVisible()
 
-        vv.leftView = v
-        vv.rightView = v2
-        vc.view.addSubview(vv)
+        cv.leftView = v1
+        cv.rightView = v2
+        vc.view.addSubview(cv)
 
-        vv.translatesAutoresizingMaskIntoConstraints = false
+        cv.translatesAutoresizingMaskIntoConstraints = false
 
-        v2.filters = Effect.dog().filters
+        v1.preset = Preset.init(icon: "👩‍💻", effect: nil)
+        v2.preset = Preset.init(icon: "🐶", effect: .dog())
+
+//        v1.preset = Preset.init(icon: "🌚", effect: .night())
+//        v2.preset = Preset.init(icon: "🐱", effect: .cat(night: true))
 
         vc.view.addConstraints([
-            vv.topAnchor.constraint(equalTo: vc.view.topAnchor),
-            vv.rightAnchor.constraint(equalTo: vc.view.rightAnchor),
-            vv.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor),
-            vv.leftAnchor.constraint(equalTo: vc.view.leftAnchor),
+            cv.topAnchor.constraint(equalTo: vc.view.topAnchor),
+            cv.rightAnchor.constraint(equalTo: vc.view.rightAnchor),
+            cv.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor),
+            cv.leftAnchor.constraint(equalTo: vc.view.leftAnchor),
         ])
 
         return true
