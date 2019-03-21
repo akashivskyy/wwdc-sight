@@ -92,7 +92,7 @@ internal struct Effect {
     /// Create a darken effect.
     ///
     /// - Parametsrs:
-    ///     - Intensity: Effect intensity, `0...1`.
+    ///     - Intensity: Effect intensity.
     internal static func darken(intensity: Float) -> Effect {
         return concat(
             filter(
@@ -118,7 +118,7 @@ internal struct Effect {
         return filter(
             name: "CIColorControls",
             parameters: [
-                "inputSaturation": clamp(1 - intensity, within: 0...1)
+                "inputSaturation": 1 - clamp(intensity, within: 0...1)
             ]
         )
     }
@@ -128,11 +128,25 @@ internal struct Effect {
         return lut { $0.lms.withDeuteranopia().rgb }
     }
 
-    static func vibrate(intensity: Float) -> Effect {
+    /// Create a saturation effect.
+    ///
+    /// - Parameters:
+    ///     - intensity: Effect intensity, `0...1`.
+    static func saturate(intensity: Float) -> Effect {
         return filter(
-            name: "CIVibrance",
+            name: "CIColorControls",
             parameters: [
-                "inputAmount": intensity
+                "inputSaturation": 1 + clamp(intensity, within: 0...1)
+            ]
+        )
+    }
+
+    /// Create a UV effect by bumping blues.
+    static func uv() -> Effect {
+        return filter(
+            name: "CIColorPolynomial",
+            parameters: [
+                "inputBlueCoefficients": CIVector(x: 0, y: 2.5, z: 0, w: 0)
             ]
         )
     }
@@ -165,11 +179,15 @@ internal struct Effect {
         )
     }
 
+    /// Create a sharpen effect.
+    ///
+    /// - Parameters:
+    ///     - intensity: Sharpness intensity.
     static func sharpen(intensity: Float) -> Effect {
         return filter(
             name: "CISharpenLuminance",
             parameters: [
-                "inputSharpness": intensity
+                "inputSharpness": intensity * 2
             ]
         )
     }
@@ -204,7 +222,8 @@ internal struct Effect {
 
     static func eagle() -> Effect {
         return concat(
-            vibrate(intensity: 1),
+            uv(),
+            saturate(intensity: 1),
             sharpen(intensity: 0.5)
         )
     }

@@ -3,23 +3,32 @@
 
 import UIKit
 
+/// View for selecting a sight preset.
 internal final class SelectionView: UIView {
 
+    // MARK: Initializers
+
+    /// Initialize an instance.
     internal init() {
         super.init(frame: .zero)
         setup()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    @available(*, unavailable)
+    internal required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: Properties
+
+    /// Icons to choose from.
     internal var icons: [String] = [] {
         didSet {
             reconfigure()
         }
     }
 
+    /// The currently selected index.
     internal var selectedIndex: Int = 0 {
         didSet {
             reselect()
@@ -27,7 +36,10 @@ internal final class SelectionView: UIView {
         }
     }
 
+    /// Callback on new selected index.
     internal var onSelectedIndex: ((Int) -> Void)?
+
+    // MARK: Hierarchy
 
     private lazy var buttonsStackView: UIStackView = {
         with(UIStackView()) {
@@ -76,6 +88,9 @@ internal final class SelectionView: UIView {
         }
     }
 
+    // MARK: Lifecycle
+
+    /// Set up view hierarchy.
     private func setup() {
 
         backgroundColor = .black
@@ -102,19 +117,32 @@ internal final class SelectionView: UIView {
 
     }
 
+    /// Reconfigure view hierarchy based on available icons.
     private func reconfigure() {
 
-        buttonsStackView.arrangedSubviews.forEach(buttonsStackView.removeArrangedSubview)
-        indicatorsStackView.arrangedSubviews.forEach(indicatorsStackView.removeArrangedSubview)
+        buttonsStackView.arrangedSubviews.forEach {
+            buttonsStackView.removeArrangedSubview($0)
+            $0.removeFromSuperview()
+        }
+
+        indicatorsStackView.arrangedSubviews.forEach {
+            indicatorsStackView.removeArrangedSubview($0)
+            $0.removeFromSuperview()
+        }
         
-        icons.forEach { buttonsStackView.addArrangedSubview(makeButton(icon: $0)) }
-        icons.forEach { _ in indicatorsStackView.addArrangedSubview(makeIndicator()) }
+        icons.forEach {
+            buttonsStackView.addArrangedSubview(makeButton(icon: $0))
+            indicatorsStackView.addArrangedSubview(makeIndicator())
+        }
 
         selectedIndex = 0
         reselect()
 
     }
 
+    // MARK: Selection
+
+    /// Reset the selection.
     private func reselect() {
 
         guard selectedIndex < icons.count, !icons.isEmpty else { return }
@@ -138,6 +166,5 @@ internal final class SelectionView: UIView {
     @objc private func buttonDidTouchUpInside(_ button: UIButton) {
         selectedIndex = buttonsStackView.arrangedSubviews.firstIndex(of: button)!
     }
-
 
 }
