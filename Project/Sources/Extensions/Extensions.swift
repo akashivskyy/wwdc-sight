@@ -1,5 +1,18 @@
-// Swift+Extensions.swift
+// Extensions.swift
 // Copyright © 2019 Adrian Kashivskyy. All rights reserved.
+
+// MARK: Swift
+
+/// Clamp value within a range.
+///
+/// - Parameters:
+///     - value: A value to clamp.
+///     - range: A bounding range.
+///
+/// - Returns: A clamped value.
+internal func clamp<T>(_ value: T, within range: ClosedRange<T>) -> T where T: Comparable {
+    return max(range.lowerBound, min(range.upperBound, value))
+}
 
 /// Perform an immediate `transform` of an instance of value type `subject`.
 ///
@@ -14,19 +27,4 @@ public func with<Subject>(_ subject: Subject, _ transform: (_ subject: inout Sub
     var subject = subject
     try transform(&subject)
     return subject
-}
-
-public func unsafeWith<Subject>(_ transform: (_ subject: inout Subject?) throws -> Void) rethrows -> Subject {
-    return try with(nil, transform)!
-}
-
-/// Clamp value within a range.
-///
-/// - Parameters:
-///     - value: A value to clamp.
-///     - range: A bounding range.
-///
-/// - Returns: A clamped value.
-internal func clamp<T>(_ value: T, within range: ClosedRange<T>) -> T where T: Comparable {
-    return max(range.lowerBound, min(range.upperBound, value))
 }

@@ -9,17 +9,18 @@
 /* Begin PBXBuildFile section */
 		3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C6180223D26150020FD3D /* AppDelegate.swift */; };
 		3A3C619A223D28210020FD3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C6199223D28210020FD3D /* Assets.xcassets */; };
-		3A3C619F223D2A1B0020FD3D /* Effect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C619E223D2A1B0020FD3D /* Effect.swift */; };
-		3A3C61A7223D2D830020FD3D /* Capturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A6223D2D830020FD3D /* Capturer.swift */; };
-		3A3C61AA223D351A0020FD3D /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A9223D351A0020FD3D /* SwiftExtensions.swift */; };
-		3A3C61C2223FE3A10020FD3D /* ComparisonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C1223FE3A10020FD3D /* ComparisonViewController.swift */; };
+		3A3C61A7223D2D830020FD3D /* CameraCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A6223D2D830020FD3D /* CameraCapturer.swift */; };
+		3A3C61AA223D351A0020FD3D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A9223D351A0020FD3D /* Extensions.swift */; };
 		3A3C61C4223FE3C00020FD3D /* ComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */; };
 		3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C52240008D0020FD3D /* KnobView.swift */; };
-		3A3C61CA224042860020FD3D /* RenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C9224042860020FD3D /* RenderView.swift */; };
+		3A3C61CA224042860020FD3D /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C9224042860020FD3D /* CameraView.swift */; };
 		3AB6230A2242A14300D874F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623092242A14300D874F8 /* Colors.swift */; };
-		3AB6230C2242AE7A00D874F8 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230B2242AE7A00D874F8 /* Preset.swift */; };
-		3AB6230E2242AEAA00D874F8 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230D2242AEAA00D874F8 /* PreviewView.swift */; };
+		3AB6230C2242AE7A00D874F8 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230B2242AE7A00D874F8 /* Sight.swift */; };
+		3AB6230E2242AEAA00D874F8 /* SightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230D2242AEAA00D874F8 /* SightView.swift */; };
 		3AB623102242F0CA00D874F8 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230F2242F0CA00D874F8 /* SelectionView.swift */; };
+		3AB623152243228000D874F8 /* MagneticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623142243228000D874F8 /* MagneticView.swift */; };
+		3AB623172243337100D874F8 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623162243337100D874F8 /* Effects.swift */; };
+		3AB6231A224333E400D874F8 /* MagneticCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62319224333E400D874F8 /* MagneticCapturer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,19 +28,19 @@
 		3A3C6184223D261E0020FD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3C6198223D26530020FD3D /* Perception.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Perception.xcconfig; sourceTree = "<group>"; };
 		3A3C6199223D28210020FD3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A3C619E223D2A1B0020FD3D /* Effect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effect.swift; sourceTree = "<group>"; };
-		3A3C61A6223D2D830020FD3D /* Capturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capturer.swift; sourceTree = "<group>"; };
-		3A3C61A9223D351A0020FD3D /* SwiftExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
-		3A3C61C1223FE3A10020FD3D /* ComparisonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonViewController.swift; sourceTree = "<group>"; };
+		3A3C61A6223D2D830020FD3D /* CameraCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCapturer.swift; sourceTree = "<group>"; };
+		3A3C61A9223D351A0020FD3D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonView.swift; sourceTree = "<group>"; };
 		3A3C61C52240008D0020FD3D /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
-		3A3C61C9224042860020FD3D /* RenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderView.swift; sourceTree = "<group>"; };
+		3A3C61C9224042860020FD3D /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		3AAAB0C4223D25530072305E /* Perception.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perception.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB623092242A14300D874F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		3AB6230B2242AE7A00D874F8 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
-		3AB6230D2242AEAA00D874F8 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		3AB6230B2242AE7A00D874F8 /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
+		3AB6230D2242AEAA00D874F8 /* SightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightView.swift; sourceTree = "<group>"; };
 		3AB6230F2242F0CA00D874F8 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
-		3AB623112242FA1A00D874F8 /* Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
+		3AB623142243228000D874F8 /* MagneticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticView.swift; sourceTree = "<group>"; };
+		3AB623162243337100D874F8 /* Effects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
+		3AB62319224333E400D874F8 /* MagneticCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticCapturer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +57,9 @@
 		3A3C617E223D26150020FD3D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				3AB623182243338200D874F8 /* Models */,
 				3A3C61BB223F9C9D0020FD3D /* Interface */,
 				3A3C61A5223D2D730020FD3D /* Capturing */,
-				3A3C619B223D29430020FD3D /* Filtering */,
-				3A3C61A2223D2A540020FD3D /* Rendering */,
 				3A3C61A8223D32DB0020FD3D /* Extensions */,
 				3A3C6180223D26150020FD3D /* AppDelegate.swift */,
 			);
@@ -83,26 +83,11 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		3A3C619B223D29430020FD3D /* Filtering */ = {
-			isa = PBXGroup;
-			children = (
-				3A3C619E223D2A1B0020FD3D /* Effect.swift */,
-				3AB623092242A14300D874F8 /* Colors.swift */,
-			);
-			path = Filtering;
-			sourceTree = "<group>";
-		};
-		3A3C61A2223D2A540020FD3D /* Rendering */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Rendering;
-			sourceTree = "<group>";
-		};
 		3A3C61A5223D2D730020FD3D /* Capturing */ = {
 			isa = PBXGroup;
 			children = (
-				3A3C61A6223D2D830020FD3D /* Capturer.swift */,
+				3A3C61A6223D2D830020FD3D /* CameraCapturer.swift */,
+				3AB62319224333E400D874F8 /* MagneticCapturer.swift */,
 			);
 			path = Capturing;
 			sourceTree = "<group>";
@@ -110,7 +95,7 @@
 		3A3C61A8223D32DB0020FD3D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3A3C61A9223D351A0020FD3D /* SwiftExtensions.swift */,
+				3A3C61A9223D351A0020FD3D /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -118,14 +103,12 @@
 		3A3C61BB223F9C9D0020FD3D /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				3A3C61C1223FE3A10020FD3D /* ComparisonViewController.swift */,
+				3AB6230D2242AEAA00D874F8 /* SightView.swift */,
+				3A3C61C9224042860020FD3D /* CameraView.swift */,
+				3AB623142243228000D874F8 /* MagneticView.swift */,
 				3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */,
 				3A3C61C52240008D0020FD3D /* KnobView.swift */,
-				3A3C61C9224042860020FD3D /* RenderView.swift */,
-				3AB6230B2242AE7A00D874F8 /* Preset.swift */,
-				3AB6230D2242AEAA00D874F8 /* PreviewView.swift */,
 				3AB6230F2242F0CA00D874F8 /* SelectionView.swift */,
-				3AB623112242FA1A00D874F8 /* Observation.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -146,6 +129,16 @@
 				3AAAB0C4223D25530072305E /* Perception.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3AB623182243338200D874F8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3AB6230B2242AE7A00D874F8 /* Sight.swift */,
+				3AB623162243337100D874F8 /* Effects.swift */,
+				3AB623092242A14300D874F8 /* Colors.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,17 +211,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB6230A2242A14300D874F8 /* Colors.swift in Sources */,
-				3A3C61CA224042860020FD3D /* RenderView.swift in Sources */,
-				3AB6230C2242AE7A00D874F8 /* Preset.swift in Sources */,
-				3AB6230E2242AEAA00D874F8 /* PreviewView.swift in Sources */,
+				3A3C61CA224042860020FD3D /* CameraView.swift in Sources */,
+				3AB6230C2242AE7A00D874F8 /* Sight.swift in Sources */,
+				3AB623172243337100D874F8 /* Effects.swift in Sources */,
+				3AB6230E2242AEAA00D874F8 /* SightView.swift in Sources */,
 				3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */,
-				3A3C61AA223D351A0020FD3D /* SwiftExtensions.swift in Sources */,
-				3A3C61C2223FE3A10020FD3D /* ComparisonViewController.swift in Sources */,
+				3A3C61AA223D351A0020FD3D /* Extensions.swift in Sources */,
 				3A3C61C4223FE3C00020FD3D /* ComparisonView.swift in Sources */,
 				3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */,
-				3A3C619F223D2A1B0020FD3D /* Effect.swift in Sources */,
-				3A3C61A7223D2D830020FD3D /* Capturer.swift in Sources */,
+				3A3C61A7223D2D830020FD3D /* CameraCapturer.swift in Sources */,
+				3AB6231A224333E400D874F8 /* MagneticCapturer.swift in Sources */,
 				3AB623102242F0CA00D874F8 /* SelectionView.swift in Sources */,
+				3AB623152243228000D874F8 /* MagneticView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

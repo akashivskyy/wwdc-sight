@@ -1,65 +1,89 @@
-// Capturer.swift
+// CameraCapturer.swift
 // Copyright © 2019 Adrian Kashivskyy. All rights reserved.
 
 import AVFoundation
 import CoreMedia
 import CoreVideo
+import Foundation
 
-internal final class Capturer: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+/// Responsible for capturing camera pixel buffers.
+internal final class CameraCapturer: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     // MARK: Types
 
+    /// Represents a camera device position.
     internal enum DevicePosition {
+
+        /// A back camera.
         case back
+
+        /// A front camera.
         case front
+
     }
 
     // MARK: Initializers
 
-    internal init(position: DevicePosition) {
+    /// Initialize an instance.
+    ///
+    /// - Parameters:
+    ///     - position: Initial camera device position.
+    internal init(position: DevicePosition = .back) {
         self.position = position
         super.init()
-        reconfigureSession()
+        reconfigure()
+    }
+
+    deinit {
+        stop()
     }
 
     // MARK: Properties
 
+    /// A camera device position.
     internal var position: DevicePosition {
         didSet {
-            reconfigureSession()
+            reconfigure()
         }
     }
 
+    /// The AV capture session.
     private lazy var session: AVCaptureSession = {
         AVCaptureSession()
     }()
 
+    /// A back camera device, if any.
     private lazy var backDevice: AVCaptureDevice? = {
         .default(.builtInWideAngleCamera, for: .video, position: .back)
     }()
 
+    /// A front camera device, if any.
     private lazy var frontDevice: AVCaptureDevice? = {
         .default(.builtInWideAngleCamera, for: .video, position: .front)
     }()
 
-    private var activeDevice: AVCaptureDevice? {
+    /// The current camera device according to `position`, if any.
+    private var currentDevice: AVCaptureDevice? {
         switch position {
             case .back: return backDevice
             case .front: return frontDevice
         }
     }
 
+    /// Queue used by AV capture session.
     private let queue = DispatchQueue(
         label: "me.akashivskyy.private.wwdc-perception.capturer",
         qos: .userInitiated,
         autoreleaseFrequency: .workItem
     )
 
-    private var onSampleBuffer: ((CVPixelBuffer, CMFormatDescription) -> Void)? = nil
+    /// Callback on buffer
+    private var onBuffer: ((CVPixelBuffer) -> Void)? = nil
 
     // MARK: Lifecycle
 
-    private func reconfigureSession() {
+    /// Reconfigure AV calture session.
+    private func reconfigure() {
 
         session.beginConfiguration()
         defer { session.commitConfiguration() }
@@ -72,7 +96,7 @@ internal final class Capturer: NSObject, AVCaptureVideoDataOutputSampleBufferDel
             $0.setSampleBufferDelegate(self, queue: queue)
         }
 
-        guard let device = activeDevice, let input = try? AVCaptureDeviceInput(device: device) else { return }
+        guard let device = currentDevice, let input = try? AVCaptureDeviceInput(device: device) else { return }
         guard session.canAddInput(input), session.canAddOutput(output) else { return }
 
         session.addInput(input)
@@ -80,22 +104,27 @@ internal final class Capturer: NSObject, AVCaptureVideoDataOutputSampleBufferDel
 
     }
 
-    internal func start(with callback: @escaping (CVPixelBuffer, CMFormatDescription) -> Void) {
-        onSampleBuffer = callback
+    /// Start capturing.
+    ///
+    /// - Parameters:
+    ///     - callback: Callback on buffer.
+    internal func start(with callback: @escaping (CVPixelBuffer) -> Void) {
+        onBuffer = callback
         session.startRunning()
     }
 
+    /// Stop capturing.
     internal func stop() {
         session.stopRunning()
-        onSampleBuffer = nil
+        onBuffer = nil
     }
 
     // MARK: AVCaptureVideoDataOutputSampleBufferDelegate
 
+    /// - SeeAlso: AVCaptureVideoDataOutputSampleBufferDelegate.captureOutput(_:didOutput:from:)
     internal func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        guard let formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer) else { return }
-        onSampleBuffer?(pixelBuffer, formatDescription)
+        onBuffer?(pixelBuffer)
     }
 
 }

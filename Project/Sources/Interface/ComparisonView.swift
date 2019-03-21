@@ -3,27 +3,34 @@
 
 import UIKit
 
+/// View that provides interactive comparison between two other views.
 internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
 
     // MARK: Initializers
 
+    /// Initialize an instance.
     internal init() {
         super.init(frame: .zero)
         setup()
     }
 
+    @available(*, unavailable)
     internal required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: Properties
 
+    /// The left view. The view's `layoutMargins` will be changed as user
+    /// pans the comparison knob.
     internal var leftView: UIView? {
         didSet {
             replaceLeftView()
         }
     }
 
+    /// The left view. The view's `layoutMargins` will be changed as user
+    /// pans the comparison knob.
     internal var rightView: UIView? {
         didSet {
             replaceRightView()
@@ -64,6 +71,9 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
         set { knobViewPositionConstraint.constant = newValue - bounds.midX }
     }
 
+    // MARK: Lifecycle
+
+    /// Set up view hierarchy and behavior.
     private func setup() {
 
         addSubview(leftContainerView)
@@ -99,6 +109,7 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
 
     }
 
+    /// - SeeAlso: UIView.layoutSubviews()
     internal override func layoutSubviews() {
         super.layoutSubviews()
         leftContainerView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: bounds.width - knobViewPosition + 8)
@@ -106,6 +117,7 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
         rightContainerMask.frame = bounds.inset(by: .init(top: 0, left: knobViewPosition, bottom: 0, right: 0))
     }
 
+    /// Replace left view in the hierarchy.
     private func replaceLeftView() {
 
         leftContainerView.subviews.forEach {
@@ -130,6 +142,7 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
 
     }
 
+    /// Replace right view in the hierarchy.
     private func replaceRightView() {
 
         rightContainerView.subviews.forEach {
@@ -156,8 +169,13 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
 
     // MARK: Panning
 
+    /// Initial position of knob when user begins panning.
     private var knobViewInitialPanningPosition: CGFloat = 0
 
+    /// How fat from the edge panning should stop.
+    private let knobViewPanningMargin: CGFloat = 32
+
+    /// - SeeAlso: UIGestureRecognizerDelegate.gestureRecognizerShouldBegin(_:)
     internal override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer === knobView.panGestureRecognizer {
             knobViewInitialPanningPosition = knobViewPosition
@@ -170,7 +188,7 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
 
     @objc private func panGestureRecognizerDidFire(_ gestureRecognizer: UIPanGestureRecognizer) {
         let newPosition = knobViewInitialPanningPosition + gestureRecognizer.translation(in: knobView).x
-        knobViewPosition = clamp(newPosition, within: 32 ... bounds.maxX - 32)
+        knobViewPosition = clamp(newPosition, within: knobViewPanningMargin ... bounds.maxX - knobViewPanningMargin)
         setNeedsLayout()
     }
 

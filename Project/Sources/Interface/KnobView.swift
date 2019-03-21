@@ -3,35 +3,26 @@
 
 import UIKit
 
+/// Knob used by `ComparisonView` to enable interactive comparison.
 internal final class KnobView: UIView {
 
     // MARK: Initializers
 
+    /// Initialize an instance.
     internal init() {
         super.init(frame: .zero)
         setup()
     }
 
+    @available(*, unavailable)
     internal required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: Hierarchy
+    // MARK: Properties
 
-    private lazy var line: UIView = {
-        with(UIView()) {
-            $0.backgroundColor = .black
-        }
-    }()
-
-    private lazy var knob: UIImageView = {
-        with(UIImageView()) {
-            $0.image = UIImage(named: "knob")!
-            $0.isUserInteractionEnabled = true
-            $0.addGestureRecognizer(panGestureRecognizer)
-        }
-    }()
-
+    /// A pan gesture recognizer attached to the knob. Should be used by the
+    /// owning object to respond to panning.
     internal private(set) lazy var panGestureRecognizer: UIPanGestureRecognizer = {
         with(UIPanGestureRecognizer()) {
             $0.minimumNumberOfTouches = 1
@@ -39,28 +30,47 @@ internal final class KnobView: UIView {
         }
     }()
 
+    // MARK: Hierarchy
+
+    private lazy var lineView: UIView = {
+        with(UIView()) {
+            $0.backgroundColor = .black
+        }
+    }()
+
+    private lazy var knobImageView: UIImageView = {
+        with(UIImageView()) {
+            $0.image = UIImage(named: "knob")!
+            $0.isUserInteractionEnabled = true
+            $0.addGestureRecognizer(panGestureRecognizer)
+        }
+    }()
+
+    // MARK: Lifecycle
+
+    /// Set up view hierarchy and behavior.
     private func setup() {
 
-        addSubview(line)
-        addSubview(knob)
+        addSubview(lineView)
+        addSubview(knobImageView)
 
-        line.translatesAutoresizingMaskIntoConstraints = false
-        knob.translatesAutoresizingMaskIntoConstraints = false
+        lineView.translatesAutoresizingMaskIntoConstraints = false
+        knobImageView.translatesAutoresizingMaskIntoConstraints = false
 
         addConstraints([
-            line.widthAnchor.constraint(equalToConstant: 4),
-            line.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            line.topAnchor.constraint(equalTo: self.topAnchor),
-            line.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            lineView.widthAnchor.constraint(equalToConstant: 4),
+            lineView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            lineView.topAnchor.constraint(equalTo: self.topAnchor),
+            lineView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
 
         addConstraints([
-            knob.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            knob.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            knob.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
-            knob.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
-            knob.leftAnchor.constraint(equalTo: self.leftAnchor),
-            knob.rightAnchor.constraint(equalTo: self.rightAnchor),
+            knobImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            knobImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            knobImageView.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
+            knobImageView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
+            knobImageView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            knobImageView.rightAnchor.constraint(equalTo: self.rightAnchor),
         ])
 
     }
