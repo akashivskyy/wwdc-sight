@@ -1,6 +1,8 @@
 // Extensions.swift
 // Copyright © 2019 Adrian Kashivskyy. All rights reserved.
 
+import UIKit
+
 // MARK: Swift
 
 /// Clamp value within a range.
@@ -27,4 +29,22 @@ public func with<Subject>(_ subject: Subject, _ transform: (_ subject: inout Sub
     var subject = subject
     try transform(&subject)
     return subject
+}
+
+// MARK: UIKit
+
+internal extension NSLayoutConstraint {
+
+    /// Apply layout priority in-place.
+    ///
+    /// - Parameters:
+    ///     - priority: Priority of constraint.
+    ///
+    /// - Returns: A constraint.
+    internal func withPriority(_ priority: UILayoutPriority) -> NSLayoutConstraint {
+        return with(self) {
+            $0.priority = priority
+        }
+    }
+
 }

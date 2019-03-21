@@ -11,7 +11,6 @@ internal final class MainViewController: UIViewController {
     /// Initialize an instance.
     internal init() {
         super.init(nibName: nil, bundle: nil)
-        reconfigure()
     }
 
     @available(*, unavailable)
@@ -95,6 +94,8 @@ internal final class MainViewController: UIViewController {
             mainView.leftView.magneticHeading = $0
             mainView.rightView.magneticHeading = $0
         }
+
+        reconfigure()
 
     }
 

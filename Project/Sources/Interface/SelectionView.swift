@@ -52,7 +52,7 @@ internal final class SelectionView: UIView {
 
             $0.translatesAutoresizingMaskIntoConstraints = false
 
-            addConstraints([
+            $0.addConstraints([
                 $0.widthAnchor.constraint(equalToConstant: 44),
                 $0.heightAnchor.constraint(equalToConstant: 44),
             ])
@@ -69,7 +69,7 @@ internal final class SelectionView: UIView {
 
             $0.translatesAutoresizingMaskIntoConstraints = false
 
-            addConstraints([
+            $0.addConstraints([
                 $0.widthAnchor.constraint(equalToConstant: 6),
                 $0.heightAnchor.constraint(equalToConstant: 44),
             ])
@@ -105,6 +105,8 @@ internal final class SelectionView: UIView {
     private func reconfigure() {
 
         buttonsStackView.arrangedSubviews.forEach(buttonsStackView.removeArrangedSubview)
+        indicatorsStackView.arrangedSubviews.forEach(indicatorsStackView.removeArrangedSubview)
+        
         icons.forEach { buttonsStackView.addArrangedSubview(makeButton(icon: $0)) }
         icons.forEach { _ in indicatorsStackView.addArrangedSubview(makeIndicator()) }
 

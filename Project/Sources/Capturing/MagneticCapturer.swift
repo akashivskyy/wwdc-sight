@@ -3,6 +3,7 @@
 
 import CoreLocation
 import Foundation
+import UIKit
 
 /// Responsible for capturing magnetic heading.
 internal final class MagneticCapturer {
@@ -31,6 +32,9 @@ internal final class MagneticCapturer {
     /// Callback on heading.
     private var onHeading: ((CLLocationDirection) -> Void)? = nil
 
+    /// An oberver of orientation changes.
+    private var orientationObserver: AnyObject?
+
     // MARK: Lifecycle
 
     /// Start capturing.
@@ -49,6 +53,12 @@ internal final class MagneticCapturer {
             onHeading(heading.magneticHeading)
         }
 
+        orientationObserver = NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: nil) { [unowned self] _ in
+            self.recalibrate()
+        }
+
+        recalibrate()
+
     }
 
     /// Stop capturing.
@@ -58,6 +68,24 @@ internal final class MagneticCapturer {
         locationTimer = nil
 
         locationManager.stopUpdatingHeading()
+
+        if let orientationObserver = orientationObserver {
+            NotificationCenter.default.removeObserver(orientationObserver)
+        }
+
+    }
+
+    /// Recalibrate CoreLocation manager heading readings.
+    private func recalibrate() {
+
+        locationManager.headingOrientation = {
+            switch UIApplication.shared.statusBarOrientation {
+                case .unknown, .portrait: return .portrait
+                case .portraitUpsideDown: return .portraitUpsideDown
+                case .landscapeLeft: return .landscapeRight
+                case .landscapeRight: return .landscapeLeft
+            }
+        }()
 
     }
 

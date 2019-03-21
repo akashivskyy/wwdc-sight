@@ -33,6 +33,11 @@ internal final class CameraView: UIView, MTKViewDelegate {
 
     #if !targetEnvironment(simulator)
 
+    /// The current device orientation.
+    private var orientation: UIInterfaceOrientation {
+        return UIApplication.shared.statusBarOrientation
+    }
+
     /// The Metal device.
     private lazy var device: MTLDevice = {
         MTLCreateSystemDefaultDevice()!
@@ -109,7 +114,16 @@ internal final class CameraView: UIView, MTKViewDelegate {
         guard let commandBuffer = commandQueue.makeCommandBuffer() else { return }
         guard let drawable = view.currentDrawable else { return }
 
-        let input = CIImage(cvPixelBuffer: pixelBuffer).oriented(.right)
+        let rotation: CGImagePropertyOrientation = {
+            switch orientation {
+                case .unknown, .portrait: return .right
+                case .portraitUpsideDown: return .left
+                case .landscapeLeft: return .down
+                case .landscapeRight: return .up
+            }
+        }()
+
+        let input = CIImage(cvPixelBuffer: pixelBuffer).oriented(rotation)
 
         let drawableSize = CGSize(width: drawable.texture.width, height: drawable.texture.height)
         let inputSize = input.extent

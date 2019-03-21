@@ -63,13 +63,15 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
     }()
 
     private lazy var knobViewPositionConstraint: NSLayoutConstraint = {
-        knobView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        knobView.centerXAnchor.constraint(equalTo: self.centerXAnchor).withPriority(.defaultHigh)
     }()
 
     private var knobViewPosition: CGFloat {
         get { return bounds.midX + knobViewPositionConstraint.constant }
         set { knobViewPositionConstraint.constant = newValue - bounds.midX }
     }
+
+    private let knobViewMargin: CGFloat = 32
 
     // MARK: Lifecycle
 
@@ -102,6 +104,8 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
             knobViewPositionConstraint,
             knobView.topAnchor.constraint(equalTo: self.topAnchor),
             knobView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            knobView.centerXAnchor.constraint(greaterThanOrEqualTo: self.leftAnchor, constant: knobViewMargin),
+            knobView.centerXAnchor.constraint(lessThanOrEqualTo: self.rightAnchor, constant: -knobViewMargin),
         ])
 
         knobView.panGestureRecognizer.delegate = self
@@ -112,9 +116,10 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
     /// - SeeAlso: UIView.layoutSubviews()
     internal override func layoutSubviews() {
         super.layoutSubviews()
-        leftContainerView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: bounds.width - knobViewPosition + 8)
-        rightContainerView.layoutMargins = UIEdgeInsets(top: 0, left: knobViewPosition + 8, bottom: 0, right: 0)
+        knobViewPosition = clamp(knobViewPosition, within: knobViewMargin ... bounds.maxX - knobViewMargin)
         rightContainerMask.frame = bounds.inset(by: .init(top: 0, left: knobViewPosition, bottom: 0, right: 0))
+        leftView?.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: bounds.width - knobViewPosition)
+        rightView?.layoutMargins = UIEdgeInsets(top: 0, left: knobViewPosition, bottom: 0, right: 0)
     }
 
     /// Replace left view in the hierarchy.
@@ -130,7 +135,7 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
 
         leftContainerView.addSubview(leftView)
 
-        leftView.preservesSuperviewLayoutMargins = true
+        leftView.preservesSuperviewLayoutMargins = false
         leftView.translatesAutoresizingMaskIntoConstraints = false
 
         addConstraints([
@@ -155,7 +160,7 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
 
         rightContainerView.addSubview(rightView)
 
-        rightView.preservesSuperviewLayoutMargins = true
+        rightView.preservesSuperviewLayoutMargins = false
         rightView.translatesAutoresizingMaskIntoConstraints = false
 
         addConstraints([
@@ -172,9 +177,6 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
     /// Initial position of knob when user begins panning.
     private var knobViewInitialPanningPosition: CGFloat = 0
 
-    /// How fat from the edge panning should stop.
-    private let knobViewPanningMargin: CGFloat = 32
-
     /// - SeeAlso: UIGestureRecognizerDelegate.gestureRecognizerShouldBegin(_:)
     internal override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer === knobView.panGestureRecognizer {
@@ -188,7 +190,7 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
 
     @objc private func panGestureRecognizerDidFire(_ gestureRecognizer: UIPanGestureRecognizer) {
         let newPosition = knobViewInitialPanningPosition + gestureRecognizer.translation(in: knobView).x
-        knobViewPosition = clamp(newPosition, within: knobViewPanningMargin ... bounds.maxX - knobViewPanningMargin)
+        knobViewPosition = clamp(newPosition, within: knobViewMargin ... bounds.maxX - knobViewMargin)
         setNeedsLayout()
     }
 
