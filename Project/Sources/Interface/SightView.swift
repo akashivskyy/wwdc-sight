@@ -93,7 +93,7 @@ internal final class SightView: UIView {
         ])
 
         addConstraints([
-            iconLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            iconLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -8),
             iconLabel.leftAnchor.constraint(equalTo: self.layoutMarginsGuide.leftAnchor),
             iconLabel.rightAnchor.constraint(equalTo: self.layoutMarginsGuide.rightAnchor),
         ])

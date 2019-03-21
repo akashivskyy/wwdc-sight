@@ -1,70 +1,35 @@
 // AppDelegate.swift
 // Copyright © 2019 Adrian Kashivskyy. All rights reserved.
 
-import simd
-import CoreImage
-import CoreMotion
-import CoreLocation
 import UIKit
-
 
 @UIApplicationMain fileprivate class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
+    // MARK: Hierarchy
 
-    let cc = CameraCapturer()
-    let mc = MagneticCapturer()
+    private lazy var mainViewController: MainViewController = {
+        MainViewController()
+    }()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    // MARK: UIApplicationDelegate
 
-        let cv = ComparisonView()
-        let sv = SelectionView()
+    /// - SeeAlso: UIApplicationDelegate.window
+    @objc fileprivate var window: UIWindow?
 
-        let v1 = SightView()
-        let v2 = SightView()
+    fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        cv.leftView = v1
-        cv.rightView = v2
+        // ["🐶", "🐱", "🐮", "🦅", "🐍", "🐟", "🦐"]
+        let human = Sight(icon: "👩‍💻", description: "Human", effect: nil, seesMagnetic: false)
+        let dog = Sight(icon: "🐶", description: "Dog", effect: .dog(), seesMagnetic: false)
+        let eagle = Sight(icon: "🦅", description: "Eagle", effect: .eagle(), seesMagnetic: true)
 
-        sv.icons = ["🐶", "🐱", "🐮", "🦅", "🐍", "🐟", "🦐"]
-
-        v1.sight = Sight(icon: "👩‍💻", description: "Human", effect: nil, seesMagnetic: false)
-//        v2.sight = Sight(icon: "🐶", description: "Dog", effect: .dog(), seesMagnetic: false)
-        v2.sight = Sight(icon: "🦅", description: "Eagle", effect: .eagle(), seesMagnetic: true)
-
-        cc.start {
-            v1.cameraPixelBuffer = $0
-            v2.cameraPixelBuffer = $0
-        }
-
-        mc.start {
-            v1.magneticHeading = $0
-            v2.magneticHeading = $0
-        }
-
-        let vc = UIViewController()
-
-        vc.view.addSubview(cv)
-        vc.view.addSubview(sv)
-
-        cv.translatesAutoresizingMaskIntoConstraints = false
-        sv.translatesAutoresizingMaskIntoConstraints = false
-
-        vc.view.addConstraints([
-            cv.topAnchor.constraint(equalTo: vc.view.topAnchor),
-            cv.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor),
-            cv.leftAnchor.constraint(equalTo: vc.view.leftAnchor),
-            cv.rightAnchor.constraint(equalTo: sv.leftAnchor, constant: -8),
-        ])
-
-        vc.view.addConstraints([
-            sv.topAnchor.constraint(equalTo: vc.view.topAnchor),
-            sv.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor),
-            sv.rightAnchor.constraint(equalTo: vc.view.rightAnchor, constant: -8),
-        ])
+        mainViewController.sights = [
+            (left: human, right: dog),
+            (left: human, right: eagle)
+        ]
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = vc
+        window!.rootViewController = mainViewController
         window!.makeKeyAndVisible()
 
         return true

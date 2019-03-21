@@ -21,6 +21,8 @@
 		3AB623152243228000D874F8 /* MagneticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623142243228000D874F8 /* MagneticView.swift */; };
 		3AB623172243337100D874F8 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623162243337100D874F8 /* Effects.swift */; };
 		3AB6231A224333E400D874F8 /* MagneticCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62319224333E400D874F8 /* MagneticCapturer.swift */; };
+		3ACC01932243AF8B00AAAA20 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01922243AF8B00AAAA20 /* MainView.swift */; };
+		3ACC01962243AF9A00AAAA20 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01952243AF9A00AAAA20 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		3AB623142243228000D874F8 /* MagneticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticView.swift; sourceTree = "<group>"; };
 		3AB623162243337100D874F8 /* Effects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
 		3AB62319224333E400D874F8 /* MagneticCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticCapturer.swift; sourceTree = "<group>"; };
+		3ACC01922243AF8B00AAAA20 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		3ACC01952243AF9A00AAAA20 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		3A3C61BB223F9C9D0020FD3D /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				3ACC01942243AF8E00AAAA20 /* Main */,
 				3AB6230D2242AEAA00D874F8 /* SightView.swift */,
 				3A3C61C9224042860020FD3D /* CameraView.swift */,
 				3AB623142243228000D874F8 /* MagneticView.swift */,
@@ -139,6 +144,15 @@
 				3AB623092242A14300D874F8 /* Colors.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3ACC01942243AF8E00AAAA20 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3ACC01952243AF9A00AAAA20 /* MainViewController.swift */,
+				3ACC01922243AF8B00AAAA20 /* MainView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AB6230A2242A14300D874F8 /* Colors.swift in Sources */,
+				3ACC01932243AF8B00AAAA20 /* MainView.swift in Sources */,
 				3A3C61CA224042860020FD3D /* CameraView.swift in Sources */,
 				3AB6230C2242AE7A00D874F8 /* Sight.swift in Sources */,
 				3AB623172243337100D874F8 /* Effects.swift in Sources */,
@@ -218,6 +233,7 @@
 				3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */,
 				3A3C61AA223D351A0020FD3D /* Extensions.swift in Sources */,
 				3A3C61C4223FE3C00020FD3D /* ComparisonView.swift in Sources */,
+				3ACC01962243AF9A00AAAA20 /* MainViewController.swift in Sources */,
 				3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */,
 				3A3C61A7223D2D830020FD3D /* CameraCapturer.swift in Sources */,
 				3AB6231A224333E400D874F8 /* MagneticCapturer.swift in Sources */,
