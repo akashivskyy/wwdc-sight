@@ -90,14 +90,13 @@ internal final class SelectionView: UIView {
             buttonsStackView.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
             buttonsStackView.bottomAnchor.constraint(lessThanOrEqualTo: self.bottomAnchor),
             buttonsStackView.leftAnchor.constraint(equalTo: self.leftAnchor),
-            buttonsStackView.rightAnchor.constraint(equalTo: indicatorsStackView.leftAnchor),
+            buttonsStackView.rightAnchor.constraint(equalTo: indicatorsStackView.leftAnchor, constant: -4),
             buttonsStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
         ])
 
         addConstraints([
             indicatorsStackView.topAnchor.constraint(equalTo: buttonsStackView.topAnchor),
             indicatorsStackView.bottomAnchor.constraint(equalTo: buttonsStackView.bottomAnchor),
-            indicatorsStackView.leftAnchor.constraint(equalTo: buttonsStackView.rightAnchor),
             indicatorsStackView.rightAnchor.constraint(equalTo: self.rightAnchor),
         ])
 

@@ -54,14 +54,13 @@ import UIKit
             cv.topAnchor.constraint(equalTo: vc.view.topAnchor),
             cv.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor),
             cv.leftAnchor.constraint(equalTo: vc.view.leftAnchor),
-            cv.rightAnchor.constraint(equalTo: sv.leftAnchor),
+            cv.rightAnchor.constraint(equalTo: sv.leftAnchor, constant: -8),
         ])
 
         vc.view.addConstraints([
             sv.topAnchor.constraint(equalTo: vc.view.topAnchor),
             sv.bottomAnchor.constraint(equalTo: vc.view.bottomAnchor),
-            sv.leftAnchor.constraint(equalTo: cv.rightAnchor),
-            sv.rightAnchor.constraint(equalTo: vc.view.rightAnchor),
+            sv.rightAnchor.constraint(equalTo: vc.view.rightAnchor, constant: -8),
         ])
 
         window = UIWindow(frame: UIScreen.main.bounds)
