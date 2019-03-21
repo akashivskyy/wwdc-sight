@@ -89,6 +89,10 @@ internal struct Effect {
 
     // MARK: Color effects
 
+    /// Create a darken effect.
+    ///
+    /// - Parametsrs:
+    ///     - Intensity: Effect intensity, `0...1`.
     internal static func darken(intensity: Float) -> Effect {
         return concat(
             filter(
@@ -109,7 +113,7 @@ internal struct Effect {
     /// Create a desaturation effect.
     ///
     /// - Parameters:
-    ///     - intensity: Desaturation intensity, `0...1`.
+    ///     - intensity: Effect intensity, `0...1`.
     static func desaturate(intensity: Float) -> Effect {
         return filter(
             name: "CIColorControls",
@@ -124,7 +128,16 @@ internal struct Effect {
         return lut { $0.lms.withDeuteranopia().rgb }
     }
 
-    // MARK: Distortion effects
+    static func vibrate(intensity: Float) -> Effect {
+        return filter(
+            name: "CIVibrance",
+            parameters: [
+                "inputAmount": intensity
+            ]
+        )
+    }
+
+    // MARK: Feature effects
 
     /// Create a gaussian blur effect.
     ///
@@ -139,11 +152,24 @@ internal struct Effect {
         )
     }
 
+    /// Create a black vignette effect.
+    ///
+    /// - Parameters:
+    ///     - radius: Vignette radius.
     static func vignette(radius: Float) -> Effect {
         return filter(
             name: "CIVignette",
             parameters: [
                 "inputRadius": radius
+            ]
+        )
+    }
+
+    static func sharpen(intensity: Float) -> Effect {
+        return filter(
+            name: "CISharpenLuminance",
+            parameters: [
+                "inputSharpness": intensity
             ]
         )
     }
@@ -173,6 +199,13 @@ internal struct Effect {
             darken(intensity: intensity),
             desaturate(intensity: intensity * 0.9),
             vignette(radius: intensity * 2)
+        )
+    }
+
+    static func eagle() -> Effect {
+        return concat(
+            vibrate(intensity: 1),
+            sharpen(intensity: 0.5)
         )
     }
 
