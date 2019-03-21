@@ -20,8 +20,15 @@ internal final class MainViewController: UIViewController {
 
     // MARK: Properties
 
-    /// An array sight preset pairs to compare.
-    internal var sights: [(left: Sight, right: Sight)] = [] {
+    /// A constant left-hand-side sight to compare.
+    internal var leftSight: Sight = .default {
+        didSet {
+            reconfigure()
+        }
+    }
+
+    /// An array of right-hand-side sights to compare.
+    internal var rightRights: [Sight] = [.default] {
         didSet {
             reconfigure()
         }
@@ -73,10 +80,15 @@ internal final class MainViewController: UIViewController {
 
         super.viewDidLoad()
 
-        mainView.selectionView.onSelectedIndex = { [unowned mainView, unowned self] in
-            mainView.leftView.sight = self.sights[$0].left
-            mainView.rightView.sight = self.sights[$0].right
-        }
+//        mainView.dockView.onNewIconIndex = { [unowned self] in
+//            self.mainView.leftView.sight = self.sights[$0].left
+//            self.mainView.rightView.sight = self.sights[$0].right
+//        }
+
+//        mainView.dockView.onSwitchSelected = { [unowned self] in
+//            self.mainView.leftView.
+
+//        }
 
     }
 
@@ -111,7 +123,8 @@ internal final class MainViewController: UIViewController {
 
     /// Reconfigure the view controller based on sight preset pairs.
     private func reconfigure() {
-        mainView.selectionView.icons = sights.map { $0.right.icon }
+//        mainView.leftView.sightDescriptor = leftSight.
+//        mainView.dockView.icons = rightRights.map { $0.icon }
     }
 
 }

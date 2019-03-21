@@ -17,12 +17,12 @@
 		3AB6230A2242A14300D874F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623092242A14300D874F8 /* Colors.swift */; };
 		3AB6230C2242AE7A00D874F8 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230B2242AE7A00D874F8 /* Sight.swift */; };
 		3AB6230E2242AEAA00D874F8 /* SightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230D2242AEAA00D874F8 /* SightView.swift */; };
-		3AB623102242F0CA00D874F8 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230F2242F0CA00D874F8 /* SelectionView.swift */; };
 		3AB623152243228000D874F8 /* MagneticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623142243228000D874F8 /* MagneticView.swift */; };
 		3AB623172243337100D874F8 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623162243337100D874F8 /* Effects.swift */; };
 		3AB6231A224333E400D874F8 /* MagneticCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62319224333E400D874F8 /* MagneticCapturer.swift */; };
 		3ACC01932243AF8B00AAAA20 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01922243AF8B00AAAA20 /* MainView.swift */; };
 		3ACC01962243AF9A00AAAA20 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01952243AF9A00AAAA20 /* MainViewController.swift */; };
+		3ACC019A2243E97900AAAA20 /* DockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01992243E97800AAAA20 /* DockView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,12 +39,12 @@
 		3AB623092242A14300D874F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3AB6230B2242AE7A00D874F8 /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
 		3AB6230D2242AEAA00D874F8 /* SightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightView.swift; sourceTree = "<group>"; };
-		3AB6230F2242F0CA00D874F8 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		3AB623142243228000D874F8 /* MagneticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticView.swift; sourceTree = "<group>"; };
 		3AB623162243337100D874F8 /* Effects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
 		3AB62319224333E400D874F8 /* MagneticCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticCapturer.swift; sourceTree = "<group>"; };
 		3ACC01922243AF8B00AAAA20 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3ACC01952243AF9A00AAAA20 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3ACC01992243E97800AAAA20 /* DockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +113,7 @@
 				3AB623142243228000D874F8 /* MagneticView.swift */,
 				3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */,
 				3A3C61C52240008D0020FD3D /* KnobView.swift */,
-				3AB6230F2242F0CA00D874F8 /* SelectionView.swift */,
+				3ACC01992243E97800AAAA20 /* DockView.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -237,8 +237,8 @@
 				3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */,
 				3A3C61A7223D2D830020FD3D /* CameraCapturer.swift in Sources */,
 				3AB6231A224333E400D874F8 /* MagneticCapturer.swift in Sources */,
-				3AB623102242F0CA00D874F8 /* SelectionView.swift in Sources */,
 				3AB623152243228000D874F8 /* MagneticView.swift in Sources */,
+				3ACC019A2243E97900AAAA20 /* DockView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

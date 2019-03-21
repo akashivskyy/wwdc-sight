@@ -19,20 +19,22 @@ import UIKit
     fileprivate func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // ["🐶", "🐱", "🐮", "🦅", "🐍", "🐟", "🦐"]
-        let human = Sight(icon: "👩‍💻", description: "Human", effect: nil, seesMagnetic: false)
-        let dog = Sight(icon: "🐶", description: "Dog", effect: .dog(), seesMagnetic: false)
-        let eagle = Sight(icon: "🦅", description: "Eagle", effect: .eagle(), seesMagnetic: true)
 
-        mainViewController.sights = [
-            (left: human, right: dog),
-            (left: human, right: eagle)
-        ]
+        let human = Sight.nocturnal(icon: "👩‍💻", name: "Human", dayEffect: .human(day: true), nightEffect: .human(day: false), magnetic: false)
+        let dog = Sight.nocturnal(icon: "🐶", name: "Dog", dayEffect: .dog(day: true), nightEffect: .dog(day: false), magnetic: false)
+        let cat = Sight.nocturnal(icon: "🐈", name: "Cat", dayEffect: .cat(day: true), nightEffect: .cat(day: false), magnetic: false)
+        let eagle = Sight.nocturnal(icon: "🦅", name: "Eagle", dayEffect: .eagle(day: true), nightEffect: .eagle(day: false), magnetic: true)
+        let bull = Sight.nocturnal(icon: "🐂", name: "Bull", dayEffect: .bull(day: true), nightEffect: .bull(day: false), magnetic: false)
+
+        mainViewController.leftSight = human
+        mainViewController.rightRights = [dog, cat, eagle, bull]
 
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.rootViewController = mainViewController
         window!.makeKeyAndVisible()
 
         return true
+
     }
 
 }

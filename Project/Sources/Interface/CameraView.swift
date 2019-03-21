@@ -28,6 +28,9 @@ internal final class CameraView: UIView, MTKViewDelegate {
     /// The pixel buffer captured by camera.
     internal var pixelBuffer: CVPixelBuffer?
 
+    /// The position of capturing device.
+    internal var devicePosition: CameraCapturer.DevicePosition = .back
+
     /// The CoreImage filters to be applied.
     internal var filters: [CIFilter] = []
 

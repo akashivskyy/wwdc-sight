@@ -37,8 +37,8 @@ internal final class MainView: UIView {
         SightView()
     }()
 
-    internal private(set) lazy var selectionView: SelectionView = {
-        SelectionView()
+    internal private(set) lazy var dockView: DockView = {
+        DockView()
     }()
 
     // MARK: Lifecycle
@@ -52,22 +52,22 @@ internal final class MainView: UIView {
         comparisonView.rightView = rightView
 
         addSubview(comparisonView)
-        addSubview(selectionView)
+        addSubview(dockView)
 
         comparisonView.translatesAutoresizingMaskIntoConstraints = false
-        selectionView.translatesAutoresizingMaskIntoConstraints = false
+        dockView.translatesAutoresizingMaskIntoConstraints = false
 
         addConstraints([
             comparisonView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
             comparisonView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
             comparisonView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8),
-            comparisonView.rightAnchor.constraint(equalTo: selectionView.leftAnchor, constant: -8),
+            comparisonView.rightAnchor.constraint(equalTo: dockView.leftAnchor, constant: -8),
         ])
 
         addConstraints([
-            selectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
-            selectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            selectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
+            dockView.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
+            dockView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
+            dockView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -8),
         ])
 
     }

@@ -11,11 +11,7 @@ internal final class SightView: UIView {
     // MARK: Initializers
 
     /// Initialize an instance.
-    ///
-    /// - Parameters:
-    ///     - sight: Sight preset.
-    internal init(sight: Sight = .default) {
-        self.sight = sight
+    internal init() {
         super.init(frame: .zero)
         setup()
     }
@@ -27,8 +23,15 @@ internal final class SightView: UIView {
 
     // MARK: Properties
 
-    /// The sight preset.
-    internal var sight: Sight {
+    /// The sight descriptor.
+    internal var sightDescriptor: SightDescriptor = .default {
+        didSet {
+            reconfigure()
+        }
+    }
+
+    /// The icon.
+    internal var icon: String = "" {
         didSet {
             reconfigure()
         }
@@ -38,6 +41,12 @@ internal final class SightView: UIView {
     internal var cameraPixelBuffer: CVPixelBuffer? {
         get { return cameraView.pixelBuffer }
         set { cameraView.pixelBuffer = newValue }
+    }
+
+    /// Shortcut access to underlying camera view's device position.
+    internal var cameraDevicePosition: CameraCapturer.DevicePosition {
+        get { return cameraView.devicePosition }
+        set { cameraView.devicePosition = newValue }
     }
 
     /// Shortcut access to underlying magnetic view's heading.
@@ -104,9 +113,9 @@ internal final class SightView: UIView {
 
     /// Reconfigure views based on sight preset.
     private func reconfigure() {
-        cameraView.filters = sight.effect?.filters ?? []
-        magneticView.isHidden = !sight.seesMagnetic
-        iconLabel.text = sight.icon
+        cameraView.filters = sightDescriptor.effect.filters
+        magneticView.isHidden = !sightDescriptor.magnetic
+        iconLabel.text = icon
     }
 
 }
