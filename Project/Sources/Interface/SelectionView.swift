@@ -10,6 +10,10 @@ import UIKit
 
 internal final class SelectionView: UIView {
 
+    private lazy var stackView: UIStackView = {
 
+    }()
+
+    
 
 }

@@ -39,6 +39,7 @@
 		3AB6230B2242AE7A00D874F8 /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		3AB6230D2242AEAA00D874F8 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		3AB6230F2242F0CA00D874F8 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		3AB623112242FA1A00D874F8 /* Observation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +125,7 @@
 				3AB6230B2242AE7A00D874F8 /* Preset.swift */,
 				3AB6230D2242AEAA00D874F8 /* PreviewView.swift */,
 				3AB6230F2242F0CA00D874F8 /* SelectionView.swift */,
+				3AB623112242FA1A00D874F8 /* Observation.swift */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
