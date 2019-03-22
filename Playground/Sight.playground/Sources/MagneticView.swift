@@ -36,14 +36,14 @@ internal final class MagneticView: UIView {
 
     private lazy var northImageView: UIImageView = {
         with(UIImageView()) {
-            $0.image = UIImage(named: "pole")
+            $0.image = UIImage(named: "pole")!.withRenderingMode(.alwaysTemplate)
             $0.tintColor = .black
         }
     }()
 
     private lazy var southImageView: UIImageView = {
         with(UIImageView()) {
-            $0.image = UIImage(named: "pole")
+            $0.image = UIImage(named: "pole")!.withRenderingMode(.alwaysTemplate)
             $0.tintColor = .white
         }
     }()

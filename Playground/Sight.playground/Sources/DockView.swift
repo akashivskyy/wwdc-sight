@@ -90,7 +90,7 @@ internal final class DockView: UIView {
     private func makeIndicator() -> UIImageView {
         return with(UIImageView()) {
 
-            $0.image = UIImage(named: "indicator")
+            $0.image = UIImage(named: "indicator")!.withRenderingMode(.alwaysTemplate)
             $0.contentMode = .center
             $0.tintColor = .white
 
@@ -114,7 +114,7 @@ internal final class DockView: UIView {
         with(UIButton(type: .system)) {
 
             $0.tintColor = .white
-            $0.setImage(UIImage(named: "sun"), for: .normal)
+            $0.setImage(UIImage(named: "sun")!.withRenderingMode(.alwaysTemplate), for: .normal)
             $0.addTarget(self, action: #selector(dayButtonDidTouchUpInside), for: .touchUpInside)
 
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -131,7 +131,7 @@ internal final class DockView: UIView {
         with(UIButton(type: .system)) {
 
             $0.tintColor = .white
-            $0.setImage(UIImage(named: "moon"), for: .normal)
+            $0.setImage(UIImage(named: "moon")!.withRenderingMode(.alwaysTemplate), for: .normal)
             $0.addTarget(self, action: #selector(nightButtonDidTouchUpInside), for: .touchUpInside)
 
             $0.translatesAutoresizingMaskIntoConstraints = false
@@ -148,7 +148,7 @@ internal final class DockView: UIView {
         with(UIButton(type: .system)) {
 
             $0.tintColor = .white
-            $0.setImage(UIImage(named: "switch"), for: .normal)
+            $0.setImage(UIImage(named: "switch")!.withRenderingMode(.alwaysTemplate), for: .normal)
             $0.addTarget(self, action: #selector(switchButtonDidTouchUpInside), for: .touchUpInside)
 
             $0.translatesAutoresizingMaskIntoConstraints = false

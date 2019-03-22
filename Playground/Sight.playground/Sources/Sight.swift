@@ -87,11 +87,11 @@ public struct Sight {
     /// Initialize an instance.
     ///
     /// - Parameters:
-    ///     - icon: An emoji icon.
+    ///     - icons: Emoji icons to choose ftom.
     ///     - name: A textual description.
     ///     - sight: A set of sight descriptors.
-    private init(icon: String, name: String, sightSet: SightDescriptorSet) {
-        self.icon = icon
+    private init(icons: [String], name: String, sightSet: SightDescriptorSet) {
+        self.icons = icons
         self.name = name
         self.sightSet = sightSet
     }
@@ -99,13 +99,13 @@ public struct Sight {
     /// Create a simple sight.
     ///
     /// - Parameters:
-    ///     - icon: An emoji icon.
+    ///     - icon: Emoji icons to choose ftom.
     ///     - name: A textual description.
     ///     - effect: Effect to apply when visualizing camera.
     ///     - magnetic: Whether to visualize magnetic field.
-    public static func simple(icon: String, name: String, effect: Effect, magnetic: Bool) -> Sight {
+    public static func simple(icons: [String], name: String, effect: Effect, magnetic: Bool) -> Sight {
         return .init(
-            icon: icon,
+            icons: icons,
             name: name,
             sightSet: .simple(.init(effect: effect, magnetic: magnetic))
         )
@@ -114,14 +114,14 @@ public struct Sight {
     /// Create a simple sight.
     ///
     /// - Parameters:
-    ///     - icon: An emoji icon.
+    ///     - icon: Emoji icons to choose from.
     ///     - name: A textual description.
     ///     - dayEffect: Effect to apply when visualizing camera in day mode.
     ///     - nightEffect: Effect to apply when visualizing camera in night mode.
     ///     - magnetic: Whether to visualize magnetic field.
-    public static func nocturnal(icon: String, name: String, dayEffect: Effect, nightEffect: Effect, magnetic: Bool) -> Sight {
+    public static func nocturnal(icons: [String], name: String, dayEffect: Effect, nightEffect: Effect, magnetic: Bool) -> Sight {
         return .init(
-            icon: icon,
+            icons: icons,
             name: name,
             sightSet: .nocturnal(day: .init(effect: dayEffect, magnetic: magnetic), night: .init(effect: nightEffect, magnetic: magnetic))
         )
@@ -129,13 +129,18 @@ public struct Sight {
 
     /// The default sight preset.
     public static var `default`: Sight {
-        return .simple(icon: "", name: "", effect: .none, magnetic: false)
+        return .simple(icons: [], name: "", effect: .none, magnetic: false)
     }
 
     // MARK: Properties
 
-    /// An amoji icon.
-    public let icon: String
+    /// Emoji icons to choose from.
+    public let icons: [String]
+
+    /// An emoji icon.
+    public var icon: String {
+        return icons.randomElement() ?? ""
+    }
 
     /// A textual name.
     public let name: String
