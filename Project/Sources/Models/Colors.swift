@@ -51,6 +51,9 @@ internal struct RGBColor {
     /// LMS color representation.
     internal var lms: LMSColor {
 
+        // Transformation matrix presented in
+        // http://biecoll.ub.uni-bielefeld.de/volltexte/2007/52/pdf/ICVS2007-6.pdf
+
         let matrix = float3x3(rows: [
             float3(17.8824, 43.5161, 4.1193),
             float3(3.4557, 27.1554, 3.8671),
@@ -112,6 +115,9 @@ internal struct LMSColor {
 
     /// RGB color representation.
     internal var rgb: RGBColor {
+
+        // Transformation matrix presented in
+        // http://biecoll.ub.uni-bielefeld.de/volltexte/2007/52/pdf/ICVS2007-6.pdf
 
         let matrix = simd_inverse(float3x3(rows: [
             float3(17.8824, 43.5161, 4.1193),

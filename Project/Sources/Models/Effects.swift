@@ -2,10 +2,15 @@
 // Copyright © 2019 Adrian Kashivskyy. All rights reserved.
 
 import CoreImage
+import UIKit
 
 /// Represents an effect (or multiple effects) to be applies to an image. Backed
 /// by CoreImage filters.
 internal struct Effect {
+
+    // MARK: Types
+
+    internal typealias Filter = (CIImage, CGSize) -> CIFilter
 
     // MARK: Initializers
 
@@ -13,8 +18,13 @@ internal struct Effect {
     ///
     /// - Parameters:
     ///     - filters: An array of CoreImage filters.
-    private init(filters: [CIFilter]) {
+    private init(filters: [Filter]) {
         self.filters = filters
+    }
+
+
+    private static func generate(_ filter: @escaping Filter) -> Effect {
+        return .init(filters: [filter])
     }
 
     /// Create a single effect backed by CoreImage filter.
@@ -23,13 +33,17 @@ internal struct Effect {
     ///     - name: The CoreImage filter name.
     ///     - parameters: The CoreImage filter parameters.
     private static func filter(name: String, parameters: [String: Any]) -> Effect {
-        return .init(filters: [CIFilter(name: name, parameters: parameters)!])
+        return generate { inputImage, _ in
+            with(CIFilter(name: name, parameters: parameters)!) {
+                $0.setValue(inputImage, forKey: "inputImage")
+            }
+        }
     }
 
     // MARK: Properties
 
     /// Array of CoreImage filters representing the effect.
-    internal var filters: [CIFilter]
+    internal var filters: [Filter]
 
     // MARK: Private effects
 
@@ -119,7 +133,7 @@ internal struct Effect {
         return filter(
             name: "CIColorControls",
             parameters: [
-                "inputContrast": clamp(adjustment, within: -1...1)
+                "inputContrast": 1 + clamp(adjustment, within: -1...1)
             ]
         )
     }
@@ -127,6 +141,15 @@ internal struct Effect {
     /// Create a deuteranopia color blindness effect.
     internal static func deuteranopia() -> Effect {
         return lut { $0.lms.withDeuteranopia().rgb }
+    }
+
+    internal static func heatmap() -> Effect {
+        return filter(
+            name: "CIColorMap",
+            parameters: [
+                "inputGradientImage": CIImage(image: UIImage(named: "map1")!)!
+            ]
+        )
     }
 
     /// Create a desaturation effect.
@@ -137,13 +160,13 @@ internal struct Effect {
         return filter(
             name: "CIColorControls",
             parameters: [
-                "inputSaturation": clamp(adjustment, within: -1...1)
+                "inputSaturation": 1 + clamp(adjustment, within: -1...1)
             ]
         )
     }
 
     /// Create a UV effect by bumping blues.
-    internal static func uv() -> Effect {
+    internal static func ultraviolet() -> Effect {
         return filter(
             name: "CIColorPolynomial",
             parameters: [
@@ -152,7 +175,7 @@ internal struct Effect {
         )
     }
 
-    // MARK: Feature effects
+    // MARK: Distortion effects
 
     /// Create a gaussian blur effect.
     ///
@@ -161,19 +184,6 @@ internal struct Effect {
     internal static func blur(radius: Double) -> Effect {
         return filter(
             name: "CIGaussianBlur",
-            parameters: [
-                "inputRadius": radius
-            ]
-        )
-    }
-
-    /// Create a black vignette effect.
-    ///
-    /// - Parameters:
-    ///     - radius: Vignette radius.
-    internal static func vignette(radius: Float) -> Effect {
-        return filter(
-            name: "CIVignette",
             parameters: [
                 "inputRadius": radius
             ]
@@ -201,19 +211,27 @@ internal struct Effect {
         } else {
             return concat(
                 brightness(adjustment: -1.6),
-                saturation(adjustment: -0.9),
-                vignette(radius: 2)
+                saturation(adjustment: -0.9)
             )
         }
     }
 
     /// Create a dog sight effect.
     static func dog(day: Bool) -> Effect {
-        return concat(
-            deuteranopia(),
-            saturation(adjustment: -0.2),
-            blur(radius: 4)
-        )
+        if day {
+            return concat(
+                deuteranopia(),
+                saturation(adjustment: -0.2),
+                blur(radius: 4)
+            )
+        } else {
+            return concat(
+                deuteranopia(),
+                brightness(adjustment: -1.2),
+                saturation(adjustment: -0.5),
+                blur(radius: 4)
+            )
+        }
     }
 
     static func cat(day: Bool) -> Effect {
@@ -225,6 +243,7 @@ internal struct Effect {
             )
         } else {
             return concat(
+                contrast(adjustment: 0.2),
                 deuteranopia(),
                 brightness(adjustment: -0.8),
                 saturation(adjustment: -0.5),
@@ -238,23 +257,70 @@ internal struct Effect {
             return concat(
                 brightness(adjustment: -0.2),
                 saturation(adjustment: -0.9),
-                blur(radius: 8)
+                blur(radius: 10)
             )
         } else {
             return concat(
-                brightness(adjustment: -1.2),
+                brightness(adjustment: -1.4),
                 saturation(adjustment: -0.9),
-                blur(radius: 8)
+                blur(radius: 20)
             )
         }
     }
 
     static func eagle(day: Bool) -> Effect {
         return concat(
-            uv(),
+            ultraviolet(),
             saturation(adjustment: 1.0),
             sharpen(intensity: 0.5)
         )
+    }
+
+    static func snake(day: Bool) -> Effect {
+        return concat(
+            blur(radius: 10),
+            heatmap()
+        )
+    }
+
+    static func fly() -> Effect {
+        return concat(
+//            filter(name: "CIAffineTile", parameters: [
+//                "inputTransform": NSValue.init(cgAffineTransform: CGAffineTransform.init(scaleX: 0.1, y: 0.08))
+//                ])
+
+            ultraviolet(),
+//
+            generate { inputImage, size in
+                CIFilter(
+                    name: "CIOpTile",
+                    parameters: [
+                        "inputCenter": CIVector.init(x: size.width / 2, y: size.height / 2), //CIVector(cgPoint: CGPoint(x: , y: )),
+//                        "inputRadius": max(size.width, size.height) / 2,
+                        "inputScale": 2,
+                        "inputWidth": max(size.width, size.height) / 10,
+                        "inputImage": inputImage
+                    ]
+                )!
+            }
+
+            , generate { inputImage, size in
+                CIFilter(
+                    name: "CIBumpDistortion",
+                    parameters: [
+                        "inputCenter": CIVector.init(x: size.width / 2, y: size.height / 2), //CIVector(cgPoint: CGPoint(x: , y: )),
+                        "inputRadius": max(size.width, size.height) / 2,
+                        "inputScale": -0.5,
+                        "inputImage": inputImage
+                    ]
+                )!
+            }
+
+
+
+//            filter(name: "CIBumpDistortion", parameters: [:])
+        )
+
     }
 
 }

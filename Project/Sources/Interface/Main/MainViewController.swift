@@ -6,6 +6,16 @@ import UIKit
 /// Main view controller of the playground.
 internal final class MainViewController: UIViewController {
 
+    // MARK: Types
+
+    fileprivate enum Mode {
+
+        case day
+
+        case night
+
+    }
+
     // MARK: Initializers
 
     /// Initialize an instance.
@@ -23,15 +33,48 @@ internal final class MainViewController: UIViewController {
     /// A constant left-hand-side sight to compare.
     internal var leftSight: Sight = .default {
         didSet {
-            reconfigure()
+            updateCurrentSights()
         }
     }
 
     /// An array of right-hand-side sights to compare.
-    internal var rightRights: [Sight] = [.default] {
+    internal var rightSights: [Sight] = [] {
         didSet {
-            reconfigure()
+            updateDockIcons()
+            updateCurrentSights()
         }
+    }
+
+    private var currentMode: Mode = .day
+
+    private var currentIndex: Int = 0
+
+    private var currentRightSight: Sight {
+        if currentIndex < rightSights.count {
+            return rightSights[currentIndex]
+        } else {
+            return .default
+        }
+    }
+
+    private var currentLeftSightDescriptor: SightDescriptor {
+        if currentMode == .night && currentSightsAreNocturnal {
+            return leftSight.sightSet.night
+        } else {
+            return leftSight.sightSet.day
+        }
+    }
+
+    private var currentRightSightDescriptor: SightDescriptor {
+        if currentMode == .night && currentSightsAreNocturnal {
+            return currentRightSight.sightSet.night
+        } else {
+            return currentRightSight.sightSet.day
+        }
+    }
+
+    private var currentSightsAreNocturnal: Bool {
+        return leftSight.sightSet.isNocturnal && currentRightSight.sightSet.isNocturnal
     }
 
     /// The camera capturer instance.
@@ -80,15 +123,25 @@ internal final class MainViewController: UIViewController {
 
         super.viewDidLoad()
 
-//        mainView.dockView.onNewIconIndex = { [unowned self] in
-//            self.mainView.leftView.sight = self.sights[$0].left
-//            self.mainView.rightView.sight = self.sights[$0].right
-//        }
+        mainView.dockView.onNewSelectedIndex = { [unowned self] index in
+            self.currentIndex = index
+            self.updateCurrentSights()
+        }
 
-//        mainView.dockView.onSwitchSelected = { [unowned self] in
-//            self.mainView.leftView.
+        mainView.dockView.onDaySelected = { [unowned self] in
+            self.currentMode = .day
+            self.updateCurrentSights()
+        }
 
-//        }
+        mainView.dockView.onNightSelected = { [unowned self] in
+            self.currentMode = .night
+            self.updateCurrentSights()
+        }
+
+        mainView.dockView.onSwitchSelected = { [unowned self] in
+            self.cameraCapturer.position.toggle()
+            self.updateCurrentSights()
+        }
 
     }
 
@@ -107,7 +160,8 @@ internal final class MainViewController: UIViewController {
             mainView.rightView.magneticHeading = $0
         }
 
-        reconfigure()
+        updateDockIcons()
+        updateCurrentSights()
 
     }
 
@@ -121,10 +175,31 @@ internal final class MainViewController: UIViewController {
 
     }
 
-    /// Reconfigure the view controller based on sight preset pairs.
-    private func reconfigure() {
-//        mainView.leftView.sightDescriptor = leftSight.
-//        mainView.dockView.icons = rightRights.map { $0.icon }
+    private func updateDockIcons() {
+
+        mainView.dockView.icons = rightSights.map { $0.icon }
+
     }
+
+    /// Reconfigure the view controller based on current sight.
+    private func updateCurrentSights() {
+
+        mainView.dockView.isDayNightButtonEnabled = currentSightsAreNocturnal
+
+        mainView.leftView.sightDescriptor = currentLeftSightDescriptor
+        mainView.rightView.sightDescriptor = currentRightSightDescriptor
+
+        mainView.leftView.icon = leftSight.icon
+        mainView.rightView.icon = currentRightSight.icon
+
+        mainView.leftView.cameraDevicePosition = cameraCapturer.position
+        mainView.rightView.cameraDevicePosition = cameraCapturer.position
+
+        mainView.leftView.magneticDevicePosition = cameraCapturer.position
+        mainView.rightView.magneticDevicePosition = cameraCapturer.position
+
+    }
+
+
 
 }

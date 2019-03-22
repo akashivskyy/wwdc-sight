@@ -1,4 +1,4 @@
-// Perception.xcconfig
+// Sight.xcconfig
 // Copyright © 2019 Adrian Kashivskyy. All rights reserved.
 
 #include "External/Common/Common.xcconfig"
@@ -17,8 +17,8 @@ _DEPLOYMENT_DEVICES_IOS = 1,2
 
 // MARK: Bundle
 
-_BUNDLE_NAME = Perception
-_BUNDLE_IDENTIFIER = me.akashivskyy.private.wwdc-perception-app
+_BUNDLE_NAME = Sight
+_BUNDLE_IDENTIFIER = me.akashivskyy.private.wwdc-sight.app
 _BUNDLE_INFOPLIST_PATH = $(PROJECT_DIR)/Resources/Info.plist
 
 // MARK: Assets

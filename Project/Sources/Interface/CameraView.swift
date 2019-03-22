@@ -32,7 +32,7 @@ internal final class CameraView: UIView, MTKViewDelegate {
     internal var devicePosition: CameraCapturer.DevicePosition = .back
 
     /// The CoreImage filters to be applied.
-    internal var filters: [CIFilter] = []
+    internal var filters: [Effect.Filter] = []
 
     #if !targetEnvironment(simulator)
 
@@ -118,11 +118,15 @@ internal final class CameraView: UIView, MTKViewDelegate {
         guard let drawable = view.currentDrawable else { return }
 
         let rotation: CGImagePropertyOrientation = {
-            switch orientation {
-                case .unknown, .portrait: return .right
-                case .portraitUpsideDown: return .left
-                case .landscapeLeft: return .down
-                case .landscapeRight: return .up
+            switch (orientation, devicePosition) {
+                case (.unknown, .back), (.portrait, .back): return .right
+                case (.unknown, .front), (.portrait, .front): return .leftMirrored
+                case (.portraitUpsideDown, .back): return .left
+                case (.portraitUpsideDown, .front): return .leftMirrored
+                case (.landscapeLeft, .back): return .down
+                case (.landscapeLeft, .front): return .downMirrored
+                case (.landscapeRight, .back): return .up
+                case (.landscapeRight, .front): return .upMirrored
             }
         }()
 
@@ -134,9 +138,19 @@ internal final class CameraView: UIView, MTKViewDelegate {
         let scale = max(drawableSize.width / inputSize.width, drawableSize.height / inputSize.height)
         let scaledSize = CGSize(width: inputSize.width * scale, height: inputSize.height * scale)
 
-        let scaleFilter = CIFilter(name: "CILanczosScaleTransform", parameters: [
-            "inputScale": scale,
-        ])!
+//        let scaleFilter = CIFilter(name: "CILanczosScaleTransform", parameters: [
+//            "inputScale": scale,
+//        ])!
+
+        let scaleFilter: Effect.Filter = { inputImage, _ in
+            CIFilter(
+                name: "CILanczosScaleTransform",
+                parameters: [
+                    "inputScale": scale,
+                    "inputImage": inputImage
+                ]
+            )!
+        }
 
         let cropRect = CGRect(
             x: max(0, drawableSize.width - scaledSize.width),
@@ -145,16 +159,28 @@ internal final class CameraView: UIView, MTKViewDelegate {
             height: drawableSize.height
         )
 
-        let cropFilter = CIFilter(name: "CICrop", parameters: [
-            "inputRectangle": CIVector(cgRect: cropRect)
-        ])!
+//        let cropFilter = CIFilter(name: "CICrop", parameters: [
+//            "inputRectangle": CIVector(cgRect: cropRect)
+//        ])!
+
+        let cropFilter: Effect.Filter = { inputImage, _ in
+            CIFilter(
+                name: "CICrop",
+                parameters: [
+                    "inputRectangle": CIVector(cgRect: cropRect),
+                    "inputImage": inputImage
+                ]
+            )!
+        }
 
         let pipeline = filters + [scaleFilter, cropFilter]
 
-        pipeline.first!.setValue(input, forKey: "inputImage")
-        zip(pipeline.dropFirst(), pipeline).forEach { $0.setValue($1.outputImage!, forKey: "inputImage") }
+        let output = pipeline.reduce(input) { input, filter in filter(input, drawableSize).outputImage! }
 
-        let output = pipeline.last!.outputImage!
+//        pipeline.first!.setValue(input, forKey: "inputImage")
+//        zip(pipeline.dropFirst(), pipeline).forEach { $0.setValue($1.outputImage!, forKey: "inputImage") }
+
+//        let output = pipeline.last!.outputImage!
 
         context.render(
             output,

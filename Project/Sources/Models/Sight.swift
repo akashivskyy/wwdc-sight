@@ -49,6 +49,29 @@ internal enum SightDescriptorSet {
         return .simple(.default)
     }
 
+    // MARK: Properties
+
+    internal var day: SightDescriptor {
+        switch self {
+            case .simple(let sight): return sight
+            case .nocturnal(let sight, _): return sight
+        }
+    }
+
+    internal var night: SightDescriptor {
+        switch self {
+            case .simple(let sight): return sight
+            case .nocturnal(_, let sight): return sight
+        }
+    }
+
+    internal var isNocturnal: Bool {
+        switch self {
+            case .simple: return false
+            case .nocturnal: return true
+        }
+    }
+
 }
 
 // MARK: -

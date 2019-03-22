@@ -26,14 +26,14 @@ internal final class SightView: UIView {
     /// The sight descriptor.
     internal var sightDescriptor: SightDescriptor = .default {
         didSet {
-            reconfigure()
+            update()
         }
     }
 
     /// The icon.
     internal var icon: String = "" {
         didSet {
-            reconfigure()
+            update()
         }
     }
 
@@ -51,8 +51,14 @@ internal final class SightView: UIView {
 
     /// Shortcut access to underlying magnetic view's heading.
     internal var magneticHeading: CLLocationDirection? {
-        get { return magneticView.magneticHeading }
-        set { magneticView.magneticHeading = newValue }
+        get { return magneticView.heading }
+        set { magneticView.heading = newValue }
+    }
+
+    /// Shortcut access to underlying camera view's device position.
+    internal var magneticDevicePosition: CameraCapturer.DevicePosition {
+        get { return magneticView.devicePosition }
+        set { magneticView.devicePosition = newValue }
     }
 
     // MARK: Hierarchy
@@ -68,9 +74,10 @@ internal final class SightView: UIView {
     private lazy var iconLabel: UILabel = {
         with(UILabel()) {
             $0.numberOfLines = 1
-            $0.font = .systemFont(ofSize: 48)
-            $0.adjustsFontSizeToFitWidth = true
+            $0.font = .systemFont(ofSize: 48, weight: .bold)
+            $0.textColor = .white
             $0.textAlignment = .center
+            $0.adjustsFontSizeToFitWidth = true
         }
     }()
 
@@ -107,12 +114,12 @@ internal final class SightView: UIView {
             iconLabel.rightAnchor.constraint(equalTo: self.layoutMarginsGuide.rightAnchor, constant: -8).withPriority(.defaultHigh),
         ])
 
-        reconfigure()
+        update()
 
     }
 
-    /// Reconfigure views based on sight preset.
-    private func reconfigure() {
+    /// Update views based on sight preset.
+    private func update() {
         cameraView.filters = sightDescriptor.effect.filters
         magneticView.isHidden = !sightDescriptor.magnetic
         iconLabel.text = icon

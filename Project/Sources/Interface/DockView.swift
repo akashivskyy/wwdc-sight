@@ -24,20 +24,27 @@ internal final class DockView: UIView {
     /// Icons to choose from.
     internal var icons: [String] = [] {
         didSet {
-            reconfigure()
+            updateIcons()
         }
     }
 
     /// The currently selected index.
     internal var selectedIconIndex: Int = 0 {
         didSet {
-            reselect()
-            onNewIconIndex?(selectedIconIndex)
+            updateSelection()
+            onNewSelectedIndex?(selectedIconIndex)
+        }
+    }
+
+
+    internal var isDayNightButtonEnabled: Bool = false {
+        didSet {
+            updateControls()
         }
     }
 
     /// Callback on new selected index.
-    internal var onNewIconIndex: ((Int) -> Void)?
+    internal var onNewSelectedIndex: ((Int) -> Void)?
 
     internal var onNightSelected: (() -> Void)?
 
@@ -57,7 +64,9 @@ internal final class DockView: UIView {
     private func makeButton(icon: String) -> UIButton {
         return with(UIButton(type: .system)) {
 
-            $0.titleLabel!.font = .systemFont(ofSize: 32)
+            $0.titleLabel!.font = .systemFont(ofSize: 32, weight: .bold)
+            $0.setTitleColor(.white, for: .normal)
+
             $0.setTitle(icon, for: .normal)
             $0.addTarget(self, action: #selector(iconButtonDidTouchUpInside), for: .touchUpInside)
 
@@ -98,7 +107,6 @@ internal final class DockView: UIView {
         with(UIStackView()) {
             $0.axis = .vertical
             $0.spacing = 8
-            $0.alpha = 0.6
         }
     }()
 
@@ -196,8 +204,7 @@ internal final class DockView: UIView {
 
     }
 
-    /// Reconfigure view hierarchy based on available icons.
-    private func reconfigure() {
+    private func updateIcons() {
 
         buttonsStackView.arrangedSubviews.forEach {
             buttonsStackView.removeArrangedSubview($0)
@@ -218,10 +225,20 @@ internal final class DockView: UIView {
 
     }
 
+    private func updateControls() {
+
+        dayButton.alpha = isDayNightButtonEnabled ? 1 : 0.5
+        nightButton.alpha = isDayNightButtonEnabled ? 1 : 0.5
+
+        dayButton.isEnabled = isDayNightButtonEnabled
+        nightButton.isEnabled = isDayNightButtonEnabled
+
+    }
+
     // MARK: Selection
 
     /// Reset the selection.
-    private func reselect() {
+    private func updateSelection() {
 
         guard selectedIconIndex < icons.count, !icons.isEmpty else { return }
         guard buttonsStackView.arrangedSubviews.count == icons.count else { return }

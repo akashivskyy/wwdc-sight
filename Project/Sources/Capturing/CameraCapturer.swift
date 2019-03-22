@@ -14,11 +14,30 @@ internal final class CameraCapturer: NSObject, AVCaptureVideoDataOutputSampleBuf
     /// Represents a camera device position.
     internal enum DevicePosition {
 
+        // MARK: Cases
+
         /// A back camera.
         case back
 
         /// A front camera.
         case front
+
+        // MARK: Properties
+
+        /// The other position.
+        internal var other: DevicePosition {
+            switch self {
+                case .back: return .front
+                case .front: return .back
+            }
+        }
+
+        // MARK: Functions
+
+        /// Switch `self` to `other`.
+        internal mutating func toggle() {
+            self = other
+        }
 
     }
 
@@ -31,7 +50,7 @@ internal final class CameraCapturer: NSObject, AVCaptureVideoDataOutputSampleBuf
     internal init(position: DevicePosition = .back) {
         self.position = position
         super.init()
-        reconfigure()
+        update()
     }
 
     deinit {
@@ -43,7 +62,7 @@ internal final class CameraCapturer: NSObject, AVCaptureVideoDataOutputSampleBuf
     /// A camera device position.
     internal var position: DevicePosition {
         didSet {
-            reconfigure()
+            update()
         }
     }
 
@@ -72,7 +91,7 @@ internal final class CameraCapturer: NSObject, AVCaptureVideoDataOutputSampleBuf
 
     /// Queue used by AV capture session.
     private let queue = DispatchQueue(
-        label: "me.akashivskyy.private.wwdc-perception.capturer",
+        label: "me.akashivskyy.private.wwdc-sight.capturer",
         qos: .userInitiated,
         autoreleaseFrequency: .workItem
     )
@@ -82,8 +101,8 @@ internal final class CameraCapturer: NSObject, AVCaptureVideoDataOutputSampleBuf
 
     // MARK: Lifecycle
 
-    /// Reconfigure AV calture session.
-    private func reconfigure() {
+    /// Update AV calture session.
+    private func update() {
 
         session.beginConfiguration()
         defer { session.commitConfiguration() }

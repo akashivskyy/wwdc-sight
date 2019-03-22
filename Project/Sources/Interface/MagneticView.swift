@@ -23,11 +23,14 @@ internal final class MagneticView: UIView {
     // MARK: Properties
 
     /// The magnetic heading vector.
-    internal var magneticHeading: CLLocationDirection? {
+    internal var heading: CLLocationDirection? {
         didSet {
             reposition()
         }
     }
+
+    /// The position of capturing device.
+    internal var devicePosition: CameraCapturer.DevicePosition = .back
 
     // MARK: Hierarchy
 
@@ -64,10 +67,17 @@ internal final class MagneticView: UIView {
     /// Reposition the pole visualization.
     private func reposition() {
 
-        guard let magneticHeading = magneticHeading else { return }
+        guard let heading = heading else { return }
 
-        let northHeading = CGFloat(magneticHeading < 180 ? magneticHeading : magneticHeading - 360)
-        let southHeading = CGFloat(magneticHeading - 180)
+        let adjustedHeading: CGFloat = {
+            switch devicePosition {
+                case .back: return CGFloat(heading)
+                case .front: return 180 - CGFloat(heading)
+            }
+        }()
+
+        let northHeading = adjustedHeading < 180 ? adjustedHeading : adjustedHeading - 360
+        let southHeading = adjustedHeading < 0 ? adjustedHeading + 180 : adjustedHeading - 180
 
         let northPosition = (self.bounds.width / 2) * (1 - (northHeading / 45)) - (self.northImageView.bounds.width / 2)
         let southPosition = (self.bounds.width / 2) * (1 - (southHeading / 45)) - (self.southImageView.bounds.width / 2)

@@ -28,14 +28,14 @@
 /* Begin PBXFileReference section */
 		3A3C6180223D26150020FD3D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A3C6184223D261E0020FD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3A3C6198223D26530020FD3D /* Perception.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Perception.xcconfig; sourceTree = "<group>"; };
+		3A3C6198223D26530020FD3D /* Sight.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Sight.xcconfig; sourceTree = "<group>"; };
 		3A3C6199223D28210020FD3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3A3C61A6223D2D830020FD3D /* CameraCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCapturer.swift; sourceTree = "<group>"; };
 		3A3C61A9223D351A0020FD3D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonView.swift; sourceTree = "<group>"; };
 		3A3C61C52240008D0020FD3D /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
 		3A3C61C9224042860020FD3D /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
-		3AAAB0C4223D25530072305E /* Perception.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Perception.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AAAB0C4223D25530072305E /* Sight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AB623092242A14300D874F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		3AB6230B2242AE7A00D874F8 /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
 		3AB6230D2242AEAA00D874F8 /* SightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightView.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		3A3C6185223D26270020FD3D /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
-				3A3C6198223D26530020FD3D /* Perception.xcconfig */,
+				3A3C6198223D26530020FD3D /* Sight.xcconfig */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -131,7 +131,7 @@
 		3AAAB0C5223D25530072305E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3AAAB0C4223D25530072305E /* Perception.app */,
+				3AAAB0C4223D25530072305E /* Sight.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,9 +158,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3AAAB0C3223D25530072305E /* Perception */ = {
+		3AAAB0C3223D25530072305E /* Sight */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3AAAB0D6223D25540072305E /* Build configuration list for PBXNativeTarget "Perception" */;
+			buildConfigurationList = 3AAAB0D6223D25540072305E /* Build configuration list for PBXNativeTarget "Sight" */;
 			buildPhases = (
 				3AAAB0C0223D25530072305E /* Sources */,
 				3AAAB0C1223D25530072305E /* Frameworks */,
@@ -170,9 +170,9 @@
 			);
 			dependencies = (
 			);
-			name = Perception;
+			name = Sight;
 			productName = Perception;
-			productReference = 3AAAB0C4223D25530072305E /* Perception.app */;
+			productReference = 3AAAB0C4223D25530072305E /* Sight.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -190,7 +190,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3AAAB0BF223D25520072305E /* Build configuration list for PBXProject "Perception" */;
+			buildConfigurationList = 3AAAB0BF223D25520072305E /* Build configuration list for PBXProject "Sight" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -203,7 +203,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3AAAB0C3223D25530072305E /* Perception */,
+				3AAAB0C3223D25530072305E /* Sight */,
 			);
 		};
 /* End PBXProject section */
@@ -253,15 +253,16 @@
 		};
 		3AAAB0D7223D25540072305E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A3C6198223D26530020FD3D /* Perception.xcconfig */;
+			baseConfigurationReference = 3A3C6198223D26530020FD3D /* Sight.xcconfig */;
 			buildSettings = {
+				PRODUCT_NAME = Sight;
 			};
 			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3AAAB0BF223D25520072305E /* Build configuration list for PBXProject "Perception" */ = {
+		3AAAB0BF223D25520072305E /* Build configuration list for PBXProject "Sight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3AAAB0D4223D25540072305E /* Debug */,
@@ -269,7 +270,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		3AAAB0D6223D25540072305E /* Build configuration list for PBXNativeTarget "Perception" */ = {
+		3AAAB0D6223D25540072305E /* Build configuration list for PBXNativeTarget "Sight" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3AAAB0D7223D25540072305E /* Debug */,
