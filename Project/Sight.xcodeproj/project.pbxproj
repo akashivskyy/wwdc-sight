@@ -9,20 +9,41 @@
 /* Begin PBXBuildFile section */
 		3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C6180223D26150020FD3D /* AppDelegate.swift */; };
 		3A3C619A223D28210020FD3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C6199223D28210020FD3D /* Assets.xcassets */; };
-		3A3C61A7223D2D830020FD3D /* CameraCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A6223D2D830020FD3D /* CameraCapturer.swift */; };
-		3A3C61AA223D351A0020FD3D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61A9223D351A0020FD3D /* Extensions.swift */; };
-		3A3C61C4223FE3C00020FD3D /* ComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */; };
-		3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C52240008D0020FD3D /* KnobView.swift */; };
-		3A3C61CA224042860020FD3D /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C61C9224042860020FD3D /* CameraView.swift */; };
-		3AB6230A2242A14300D874F8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623092242A14300D874F8 /* Colors.swift */; };
-		3AB6230C2242AE7A00D874F8 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230B2242AE7A00D874F8 /* Sight.swift */; };
-		3AB6230E2242AEAA00D874F8 /* SightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB6230D2242AEAA00D874F8 /* SightView.swift */; };
-		3AB623152243228000D874F8 /* MagneticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623142243228000D874F8 /* MagneticView.swift */; };
-		3AB623172243337100D874F8 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB623162243337100D874F8 /* Effects.swift */; };
-		3AB6231A224333E400D874F8 /* MagneticCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB62319224333E400D874F8 /* MagneticCapturer.swift */; };
-		3ACC01932243AF8B00AAAA20 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01922243AF8B00AAAA20 /* MainView.swift */; };
-		3ACC01962243AF9A00AAAA20 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01952243AF9A00AAAA20 /* MainViewController.swift */; };
-		3ACC019A2243E97900AAAA20 /* DockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01992243E97800AAAA20 /* DockView.swift */; };
+		3ACC01CC22446D8900AAAA20 /* MagneticCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01BE22446D8800AAAA20 /* MagneticCapturer.swift */; };
+		3ACC01CD22446D8900AAAA20 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01BF22446D8800AAAA20 /* Sight.swift */; };
+		3ACC01CE22446D8900AAAA20 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C022446D8800AAAA20 /* Colors.swift */; };
+		3ACC01CF22446D8900AAAA20 /* MagneticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C122446D8800AAAA20 /* MagneticView.swift */; };
+		3ACC01D022446D8900AAAA20 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C222446D8800AAAA20 /* MainView.swift */; };
+		3ACC01D122446D8900AAAA20 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C322446D8800AAAA20 /* CameraView.swift */; };
+		3ACC01D222446D8900AAAA20 /* DockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C422446D8900AAAA20 /* DockView.swift */; };
+		3ACC01D322446D8900AAAA20 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C522446D8900AAAA20 /* Extensions.swift */; };
+		3ACC01D422446D8900AAAA20 /* CameraCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C622446D8900AAAA20 /* CameraCapturer.swift */; };
+		3ACC01D522446D8900AAAA20 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C722446D8900AAAA20 /* MainViewController.swift */; };
+		3ACC01D622446D8900AAAA20 /* SightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C822446D8900AAAA20 /* SightView.swift */; };
+		3ACC01D722446D8900AAAA20 /* KnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C922446D8900AAAA20 /* KnobView.swift */; };
+		3ACC01D822446D8900AAAA20 /* ComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01CA22446D8900AAAA20 /* ComparisonView.swift */; };
+		3ACC01D922446D8900AAAA20 /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01CB22446D8900AAAA20 /* Effects.swift */; };
+		3ACC01EE22446E1100AAAA20 /* sun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01DB22446E1000AAAA20 /* sun@2x.png */; };
+		3ACC01EF22446E1100AAAA20 /* heatmap@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01DC22446E1000AAAA20 /* heatmap@3x.png */; };
+		3ACC01F022446E1100AAAA20 /* moon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01DD22446E1000AAAA20 /* moon@2x.png */; };
+		3ACC01F122446E1100AAAA20 /* pole@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01DE22446E1000AAAA20 /* pole@1x.png */; };
+		3ACC01F222446E1100AAAA20 /* moon@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01DF22446E1000AAAA20 /* moon@1x.png */; };
+		3ACC01F322446E1100AAAA20 /* switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E022446E1000AAAA20 /* switch@2x.png */; };
+		3ACC01F422446E1100AAAA20 /* knob@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E122446E1000AAAA20 /* knob@1x.png */; };
+		3ACC01F522446E1100AAAA20 /* pole@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E222446E1100AAAA20 /* pole@3x.png */; };
+		3ACC01F622446E1100AAAA20 /* switch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E322446E1100AAAA20 /* switch@3x.png */; };
+		3ACC01F722446E1100AAAA20 /* moon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E422446E1100AAAA20 /* moon@3x.png */; };
+		3ACC01F822446E1100AAAA20 /* indicator@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E522446E1100AAAA20 /* indicator@3x.png */; };
+		3ACC01F922446E1100AAAA20 /* pole@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E622446E1100AAAA20 /* pole@2x.png */; };
+		3ACC01FA22446E1100AAAA20 /* knob@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E722446E1100AAAA20 /* knob@3x.png */; };
+		3ACC01FB22446E1100AAAA20 /* indicator@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E822446E1100AAAA20 /* indicator@1x.png */; };
+		3ACC01FC22446E1100AAAA20 /* sun@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01E922446E1100AAAA20 /* sun@1x.png */; };
+		3ACC01FD22446E1100AAAA20 /* indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01EA22446E1100AAAA20 /* indicator@2x.png */; };
+		3ACC01FE22446E1100AAAA20 /* sun@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01EB22446E1100AAAA20 /* sun@3x.png */; };
+		3ACC01FF22446E1100AAAA20 /* switch@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01EC22446E1100AAAA20 /* switch@1x.png */; };
+		3ACC020022446E1100AAAA20 /* knob@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC01ED22446E1100AAAA20 /* knob@2x.png */; };
+		3ACC020722446FE400AAAA20 /* heatmap@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC020522446FE400AAAA20 /* heatmap@1x.png */; };
+		3ACC020822446FE400AAAA20 /* heatmap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC020622446FE400AAAA20 /* heatmap@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,21 +51,42 @@
 		3A3C6184223D261E0020FD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3C6198223D26530020FD3D /* Sight.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Sight.xcconfig; sourceTree = "<group>"; };
 		3A3C6199223D28210020FD3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3A3C61A6223D2D830020FD3D /* CameraCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCapturer.swift; sourceTree = "<group>"; };
-		3A3C61A9223D351A0020FD3D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonView.swift; sourceTree = "<group>"; };
-		3A3C61C52240008D0020FD3D /* KnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnobView.swift; sourceTree = "<group>"; };
-		3A3C61C9224042860020FD3D /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		3AAAB0C4223D25530072305E /* Sight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sight.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3AB623092242A14300D874F8 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		3AB6230B2242AE7A00D874F8 /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
-		3AB6230D2242AEAA00D874F8 /* SightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightView.swift; sourceTree = "<group>"; };
-		3AB623142243228000D874F8 /* MagneticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticView.swift; sourceTree = "<group>"; };
-		3AB623162243337100D874F8 /* Effects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
-		3AB62319224333E400D874F8 /* MagneticCapturer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagneticCapturer.swift; sourceTree = "<group>"; };
-		3ACC01922243AF8B00AAAA20 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		3ACC01952243AF9A00AAAA20 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		3ACC01992243E97800AAAA20 /* DockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DockView.swift; sourceTree = "<group>"; };
+		3ACC01BE22446D8800AAAA20 /* MagneticCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagneticCapturer.swift; path = ../Playground/Sight.playground/Sources/MagneticCapturer.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01BF22446D8800AAAA20 /* Sight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sight.swift; path = ../Playground/Sight.playground/Sources/Sight.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C022446D8800AAAA20 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../Playground/Sight.playground/Sources/Colors.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C122446D8800AAAA20 /* MagneticView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagneticView.swift; path = ../Playground/Sight.playground/Sources/MagneticView.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C222446D8800AAAA20 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = ../Playground/Sight.playground/Sources/MainView.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C322446D8800AAAA20 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraView.swift; path = ../Playground/Sight.playground/Sources/CameraView.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C422446D8900AAAA20 /* DockView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DockView.swift; path = ../Playground/Sight.playground/Sources/DockView.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C522446D8900AAAA20 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = ../Playground/Sight.playground/Sources/Extensions.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C622446D8900AAAA20 /* CameraCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraCapturer.swift; path = ../Playground/Sight.playground/Sources/CameraCapturer.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C722446D8900AAAA20 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = ../Playground/Sight.playground/Sources/MainViewController.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C822446D8900AAAA20 /* SightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SightView.swift; path = ../Playground/Sight.playground/Sources/SightView.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01C922446D8900AAAA20 /* KnobView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KnobView.swift; path = ../Playground/Sight.playground/Sources/KnobView.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01CA22446D8900AAAA20 /* ComparisonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComparisonView.swift; path = ../Playground/Sight.playground/Sources/ComparisonView.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01CB22446D8900AAAA20 /* Effects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Effects.swift; path = ../Playground/Sight.playground/Sources/Effects.swift; sourceTree = SOURCE_ROOT; };
+		3ACC01DB22446E1000AAAA20 /* sun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sun@2x.png"; path = "../Playground/Sight.playground/Resources/sun@2x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01DC22446E1000AAAA20 /* heatmap@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heatmap@3x.png"; path = "../Playground/Sight.playground/Resources/heatmap@3x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01DD22446E1000AAAA20 /* moon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "moon@2x.png"; path = "../Playground/Sight.playground/Resources/moon@2x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01DE22446E1000AAAA20 /* pole@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pole@1x.png"; path = "../Playground/Sight.playground/Resources/pole@1x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01DF22446E1000AAAA20 /* moon@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "moon@1x.png"; path = "../Playground/Sight.playground/Resources/moon@1x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E022446E1000AAAA20 /* switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "switch@2x.png"; path = "../Playground/Sight.playground/Resources/switch@2x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E122446E1000AAAA20 /* knob@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "knob@1x.png"; path = "../Playground/Sight.playground/Resources/knob@1x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E222446E1100AAAA20 /* pole@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pole@3x.png"; path = "../Playground/Sight.playground/Resources/pole@3x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E322446E1100AAAA20 /* switch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "switch@3x.png"; path = "../Playground/Sight.playground/Resources/switch@3x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E422446E1100AAAA20 /* moon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "moon@3x.png"; path = "../Playground/Sight.playground/Resources/moon@3x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E522446E1100AAAA20 /* indicator@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "indicator@3x.png"; path = "../Playground/Sight.playground/Resources/indicator@3x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E622446E1100AAAA20 /* pole@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pole@2x.png"; path = "../Playground/Sight.playground/Resources/pole@2x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E722446E1100AAAA20 /* knob@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "knob@3x.png"; path = "../Playground/Sight.playground/Resources/knob@3x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E822446E1100AAAA20 /* indicator@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "indicator@1x.png"; path = "../Playground/Sight.playground/Resources/indicator@1x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01E922446E1100AAAA20 /* sun@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sun@1x.png"; path = "../Playground/Sight.playground/Resources/sun@1x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01EA22446E1100AAAA20 /* indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "indicator@2x.png"; path = "../Playground/Sight.playground/Resources/indicator@2x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01EB22446E1100AAAA20 /* sun@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sun@3x.png"; path = "../Playground/Sight.playground/Resources/sun@3x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01EC22446E1100AAAA20 /* switch@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "switch@1x.png"; path = "../Playground/Sight.playground/Resources/switch@1x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC01ED22446E1100AAAA20 /* knob@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "knob@2x.png"; path = "../Playground/Sight.playground/Resources/knob@2x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC020522446FE400AAAA20 /* heatmap@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heatmap@1x.png"; path = "../Playground/Sight.playground/Resources/heatmap@1x.png"; sourceTree = SOURCE_ROOT; };
+		3ACC020622446FE400AAAA20 /* heatmap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heatmap@2x.png"; path = "../Playground/Sight.playground/Resources/heatmap@2x.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +103,8 @@
 		3A3C617E223D26150020FD3D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3AB623182243338200D874F8 /* Models */,
-				3A3C61BB223F9C9D0020FD3D /* Interface */,
-				3A3C61A5223D2D730020FD3D /* Capturing */,
-				3A3C61A8223D32DB0020FD3D /* Extensions */,
 				3A3C6180223D26150020FD3D /* AppDelegate.swift */,
+				3ACC01BD22446D7B00AAAA20 /* Playground */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -73,8 +112,9 @@
 		3A3C6183223D261E0020FD3D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3A3C6199223D28210020FD3D /* Assets.xcassets */,
 				3A3C6184223D261E0020FD3D /* Info.plist */,
+				3A3C6199223D28210020FD3D /* Assets.xcassets */,
+				3ACC01DA22446E0100AAAA20 /* Playground */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -85,37 +125,6 @@
 				3A3C6198223D26530020FD3D /* Sight.xcconfig */,
 			);
 			path = Configuration;
-			sourceTree = "<group>";
-		};
-		3A3C61A5223D2D730020FD3D /* Capturing */ = {
-			isa = PBXGroup;
-			children = (
-				3A3C61A6223D2D830020FD3D /* CameraCapturer.swift */,
-				3AB62319224333E400D874F8 /* MagneticCapturer.swift */,
-			);
-			path = Capturing;
-			sourceTree = "<group>";
-		};
-		3A3C61A8223D32DB0020FD3D /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3A3C61A9223D351A0020FD3D /* Extensions.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		3A3C61BB223F9C9D0020FD3D /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				3ACC01942243AF8E00AAAA20 /* Main */,
-				3AB6230D2242AEAA00D874F8 /* SightView.swift */,
-				3A3C61C9224042860020FD3D /* CameraView.swift */,
-				3AB623142243228000D874F8 /* MagneticView.swift */,
-				3A3C61C3223FE3C00020FD3D /* ComparisonView.swift */,
-				3A3C61C52240008D0020FD3D /* KnobView.swift */,
-				3ACC01992243E97800AAAA20 /* DockView.swift */,
-			);
-			path = Interface;
 			sourceTree = "<group>";
 		};
 		3AAAB0BB223D25520072305E = {
@@ -136,23 +145,85 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3AB623182243338200D874F8 /* Models */ = {
+		3ACC01BD22446D7B00AAAA20 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
-				3AB6230B2242AE7A00D874F8 /* Sight.swift */,
-				3AB623162243337100D874F8 /* Effects.swift */,
-				3AB623092242A14300D874F8 /* Colors.swift */,
+				3ACC020122446E1F00AAAA20 /* Main */,
+				3ACC020222446E3000AAAA20 /* Models */,
+				3ACC020422446E5B00AAAA20 /* Views */,
+				3ACC020322446E4300AAAA20 /* Capturers */,
 			);
-			path = Models;
+			name = Playground;
 			sourceTree = "<group>";
 		};
-		3ACC01942243AF8E00AAAA20 /* Main */ = {
+		3ACC01DA22446E0100AAAA20 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
-				3ACC01952243AF9A00AAAA20 /* MainViewController.swift */,
-				3ACC01922243AF8B00AAAA20 /* MainView.swift */,
+				3ACC020522446FE400AAAA20 /* heatmap@1x.png */,
+				3ACC020622446FE400AAAA20 /* heatmap@2x.png */,
+				3ACC01DC22446E1000AAAA20 /* heatmap@3x.png */,
+				3ACC01E822446E1100AAAA20 /* indicator@1x.png */,
+				3ACC01EA22446E1100AAAA20 /* indicator@2x.png */,
+				3ACC01E522446E1100AAAA20 /* indicator@3x.png */,
+				3ACC01E122446E1000AAAA20 /* knob@1x.png */,
+				3ACC01ED22446E1100AAAA20 /* knob@2x.png */,
+				3ACC01E722446E1100AAAA20 /* knob@3x.png */,
+				3ACC01DF22446E1000AAAA20 /* moon@1x.png */,
+				3ACC01DD22446E1000AAAA20 /* moon@2x.png */,
+				3ACC01E422446E1100AAAA20 /* moon@3x.png */,
+				3ACC01DE22446E1000AAAA20 /* pole@1x.png */,
+				3ACC01E622446E1100AAAA20 /* pole@2x.png */,
+				3ACC01E222446E1100AAAA20 /* pole@3x.png */,
+				3ACC01E922446E1100AAAA20 /* sun@1x.png */,
+				3ACC01DB22446E1000AAAA20 /* sun@2x.png */,
+				3ACC01EB22446E1100AAAA20 /* sun@3x.png */,
+				3ACC01EC22446E1100AAAA20 /* switch@1x.png */,
+				3ACC01E022446E1000AAAA20 /* switch@2x.png */,
+				3ACC01E322446E1100AAAA20 /* switch@3x.png */,
 			);
-			path = Main;
+			name = Playground;
+			sourceTree = "<group>";
+		};
+		3ACC020122446E1F00AAAA20 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3ACC01C722446D8900AAAA20 /* MainViewController.swift */,
+				3ACC01C222446D8800AAAA20 /* MainView.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		3ACC020222446E3000AAAA20 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3ACC01C022446D8800AAAA20 /* Colors.swift */,
+				3ACC01CB22446D8900AAAA20 /* Effects.swift */,
+				3ACC01BF22446D8800AAAA20 /* Sight.swift */,
+				3ACC01C522446D8900AAAA20 /* Extensions.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		3ACC020322446E4300AAAA20 /* Capturers */ = {
+			isa = PBXGroup;
+			children = (
+				3ACC01C622446D8900AAAA20 /* CameraCapturer.swift */,
+				3ACC01BE22446D8800AAAA20 /* MagneticCapturer.swift */,
+			);
+			name = Capturers;
+			sourceTree = "<group>";
+		};
+		3ACC020422446E5B00AAAA20 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3ACC01C422446D8900AAAA20 /* DockView.swift */,
+				3ACC01CA22446D8900AAAA20 /* ComparisonView.swift */,
+				3ACC01C922446D8900AAAA20 /* KnobView.swift */,
+				3ACC01C822446D8900AAAA20 /* SightView.swift */,
+				3ACC01C322446D8800AAAA20 /* CameraView.swift */,
+				3ACC01C122446D8800AAAA20 /* MagneticView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +284,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ACC01FF22446E1100AAAA20 /* switch@1x.png in Resources */,
+				3ACC01F122446E1100AAAA20 /* pole@1x.png in Resources */,
+				3ACC01F422446E1100AAAA20 /* knob@1x.png in Resources */,
+				3ACC01FD22446E1100AAAA20 /* indicator@2x.png in Resources */,
 				3A3C619A223D28210020FD3D /* Assets.xcassets in Resources */,
+				3ACC01F522446E1100AAAA20 /* pole@3x.png in Resources */,
+				3ACC01F322446E1100AAAA20 /* switch@2x.png in Resources */,
+				3ACC01FA22446E1100AAAA20 /* knob@3x.png in Resources */,
+				3ACC01F722446E1100AAAA20 /* moon@3x.png in Resources */,
+				3ACC020722446FE400AAAA20 /* heatmap@1x.png in Resources */,
+				3ACC01F622446E1100AAAA20 /* switch@3x.png in Resources */,
+				3ACC01FB22446E1100AAAA20 /* indicator@1x.png in Resources */,
+				3ACC01FE22446E1100AAAA20 /* sun@3x.png in Resources */,
+				3ACC020822446FE400AAAA20 /* heatmap@2x.png in Resources */,
+				3ACC01F022446E1100AAAA20 /* moon@2x.png in Resources */,
+				3ACC01EE22446E1100AAAA20 /* sun@2x.png in Resources */,
+				3ACC020022446E1100AAAA20 /* knob@2x.png in Resources */,
+				3ACC01F222446E1100AAAA20 /* moon@1x.png in Resources */,
+				3ACC01FC22446E1100AAAA20 /* sun@1x.png in Resources */,
+				3ACC01F922446E1100AAAA20 /* pole@2x.png in Resources */,
+				3ACC01EF22446E1100AAAA20 /* heatmap@3x.png in Resources */,
+				3ACC01F822446E1100AAAA20 /* indicator@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,21 +316,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3AB6230A2242A14300D874F8 /* Colors.swift in Sources */,
-				3ACC01932243AF8B00AAAA20 /* MainView.swift in Sources */,
-				3A3C61CA224042860020FD3D /* CameraView.swift in Sources */,
-				3AB6230C2242AE7A00D874F8 /* Sight.swift in Sources */,
-				3AB623172243337100D874F8 /* Effects.swift in Sources */,
-				3AB6230E2242AEAA00D874F8 /* SightView.swift in Sources */,
-				3A3C61C62240008D0020FD3D /* KnobView.swift in Sources */,
-				3A3C61AA223D351A0020FD3D /* Extensions.swift in Sources */,
-				3A3C61C4223FE3C00020FD3D /* ComparisonView.swift in Sources */,
-				3ACC01962243AF9A00AAAA20 /* MainViewController.swift in Sources */,
+				3ACC01D422446D8900AAAA20 /* CameraCapturer.swift in Sources */,
+				3ACC01D922446D8900AAAA20 /* Effects.swift in Sources */,
+				3ACC01D522446D8900AAAA20 /* MainViewController.swift in Sources */,
+				3ACC01CD22446D8900AAAA20 /* Sight.swift in Sources */,
+				3ACC01D722446D8900AAAA20 /* KnobView.swift in Sources */,
+				3ACC01D322446D8900AAAA20 /* Extensions.swift in Sources */,
+				3ACC01D122446D8900AAAA20 /* CameraView.swift in Sources */,
+				3ACC01D022446D8900AAAA20 /* MainView.swift in Sources */,
+				3ACC01D822446D8900AAAA20 /* ComparisonView.swift in Sources */,
+				3ACC01CF22446D8900AAAA20 /* MagneticView.swift in Sources */,
+				3ACC01CE22446D8900AAAA20 /* Colors.swift in Sources */,
+				3ACC01D622446D8900AAAA20 /* SightView.swift in Sources */,
+				3ACC01D222446D8900AAAA20 /* DockView.swift in Sources */,
 				3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */,
-				3A3C61A7223D2D830020FD3D /* CameraCapturer.swift in Sources */,
-				3AB6231A224333E400D874F8 /* MagneticCapturer.swift in Sources */,
-				3AB623152243228000D874F8 /* MagneticView.swift in Sources */,
-				3ACC019A2243E97900AAAA20 /* DockView.swift in Sources */,
+				3ACC01CC22446D8900AAAA20 /* MagneticCapturer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
