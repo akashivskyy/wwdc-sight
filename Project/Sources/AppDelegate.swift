@@ -36,7 +36,8 @@ import UIKit
         let introViewController = IntroViewController()
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = introViewController
+        window!.rootViewController = mainViewController
+//        window!.rootViewController = introViewController
         window!.makeKeyAndVisible()
 
         return true

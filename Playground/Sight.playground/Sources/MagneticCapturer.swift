@@ -20,6 +20,9 @@ internal final class MagneticCapturer {
     }
 
     // MARK: Properties
+    
+    /// The current device orientation.
+    internal var orientation: UIInterfaceOrientation = .unknown
 
     /// The CoreLocation manager that delivers heading data.
     private lazy var locationManager: CLLocationManager = {
@@ -79,7 +82,7 @@ internal final class MagneticCapturer {
     private func recalibrate() {
 
         locationManager.headingOrientation = {
-            switch UIApplication.shared.statusBarOrientation {
+            switch orientation {
                 case .unknown, .portrait: return .portrait
                 case .portraitUpsideDown: return .portraitUpsideDown
                 case .landscapeLeft: return .landscapeRight

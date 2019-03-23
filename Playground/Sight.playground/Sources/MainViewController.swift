@@ -209,6 +209,13 @@ public final class MainViewController: UIViewController {
 
     }
 
-
+    /// - SeeAlso: UIViewController.viewWillTransition(to:with:)
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [unowned self] in
+            self.mainView.leftView.cameraOrientation = self.interfaceOrientation
+            self.mainView.rightView.cameraOrientation = self.interfaceOrientation
+            self.magneticCapturer.orientation = self.interfaceOrientation
+        }
+    }
 
 }

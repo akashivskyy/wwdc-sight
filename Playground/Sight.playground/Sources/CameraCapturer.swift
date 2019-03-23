@@ -121,6 +121,8 @@ internal final class CameraCapturer: NSObject, AVCaptureVideoDataOutputSampleBuf
         session.addInput(input)
         session.addOutput(output)
 
+//        output.connection(with: .video)!.videoOrientation = .portrait
+
     }
 
     /// Start capturing.

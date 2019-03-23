@@ -41,10 +41,10 @@ public final class IntroViewController: UIViewController {
         introView.translatesAutoresizingMaskIntoConstraints = false
 
         view.addConstraints([
-            introView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            introView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            introView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            introView.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor),
+            introView.topAnchor.constraint(equalTo: view.topAnchor),
+            introView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            introView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            introView.rightAnchor.constraint(equalTo:view.rightAnchor),
         ])
 
     }
@@ -56,6 +56,18 @@ public final class IntroViewController: UIViewController {
 
         introView.start()
 
+    }
+
+    /// - SeeAlso: UIViewController.viewWillTransition(to:with:)
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        switch UIDevice.current.orientation {
+            case .unknown: Orientation.current = .unknown
+            case .portrait: Orientation.current = .portrait
+            case .portraitUpsideDown: Orientation.current = .portraitUpsideDown
+            case .landscapeLeft: Orientation.current = .landscapeRight
+            case .landscapeRight: Orientation.current = .landscapeLeft
+            case .faceUp, .faceDown: break
+        }
     }
 
 }

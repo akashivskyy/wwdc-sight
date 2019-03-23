@@ -34,12 +34,10 @@ internal final class CameraView: UIView, MTKViewDelegate {
     /// The CoreImage filters to be applied.
     internal var filters: [Effect.Filter] = []
 
-    #if !targetEnvironment(simulator)
-
     /// The current device orientation.
-    private var orientation: UIInterfaceOrientation {
-        return UIApplication.shared.statusBarOrientation
-    }
+    internal var orientation: UIInterfaceOrientation = .unknown
+
+    #if !targetEnvironment(simulator)
 
     /// The Metal device.
     private lazy var device: MTLDevice = {
@@ -138,10 +136,6 @@ internal final class CameraView: UIView, MTKViewDelegate {
         let scale = max(drawableSize.width / inputSize.width, drawableSize.height / inputSize.height)
         let scaledSize = CGSize(width: inputSize.width * scale, height: inputSize.height * scale)
 
-//        let scaleFilter = CIFilter(name: "CILanczosScaleTransform", parameters: [
-//            "inputScale": scale,
-//        ])!
-
         let scaleFilter: Effect.Filter = { inputImage, _ in
             CIFilter(
                 name: "CILanczosScaleTransform",
@@ -153,15 +147,11 @@ internal final class CameraView: UIView, MTKViewDelegate {
         }
 
         let cropRect = CGRect(
-            x: max(0, drawableSize.width - scaledSize.width),
-            y: max(0, drawableSize.height - scaledSize.height),
+            x: max(0, (scaledSize.width - drawableSize.width) / 2),
+            y: max(0, (scaledSize.height - drawableSize.height) / 2),
             width: drawableSize.width,
             height: drawableSize.height
         )
-
-//        let cropFilter = CIFilter(name: "CICrop", parameters: [
-//            "inputRectangle": CIVector(cgRect: cropRect)
-//        ])!
 
         let cropFilter: Effect.Filter = { inputImage, _ in
             CIFilter(
