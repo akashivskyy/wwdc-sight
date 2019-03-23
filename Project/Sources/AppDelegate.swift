@@ -33,8 +33,10 @@ import UIKit
         mainViewController.leftSight = human
         mainViewController.rightSights = [dog, cat, eagle, bull, snake, bee]
 
+        let introViewController = IntroViewController()
+
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = mainViewController
+        window!.rootViewController = introViewController
         window!.makeKeyAndVisible()
 
         return true

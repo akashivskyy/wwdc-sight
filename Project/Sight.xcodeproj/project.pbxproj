@@ -9,6 +9,38 @@
 /* Begin PBXBuildFile section */
 		3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3C6180223D26150020FD3D /* AppDelegate.swift */; };
 		3A3C619A223D28210020FD3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A3C6199223D28210020FD3D /* Assets.xcassets */; };
+		3A506DC62246601300929184 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506DC52246601300929184 /* IntroViewController.swift */; };
+		3A506DC82246609100929184 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506DC72246609000929184 /* IntroView.swift */; };
+		3A506DE22246634000929184 /* bull-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DC92246633E00929184 /* bull-5.jpg */; };
+		3A506DE32246634000929184 /* cat-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DCA2246633E00929184 /* cat-5.jpg */; };
+		3A506DE42246634000929184 /* bee-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DCB2246633E00929184 /* bee-1.jpg */; };
+		3A506DE52246634000929184 /* eagle-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DCC2246633F00929184 /* eagle-5.jpg */; };
+		3A506DE62246634000929184 /* eagle-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DCD2246633F00929184 /* eagle-4.jpg */; };
+		3A506DE72246634000929184 /* eagle-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DCE2246633F00929184 /* eagle-1.jpg */; };
+		3A506DE82246634000929184 /* bull-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DCF2246633F00929184 /* bull-1.jpg */; };
+		3A506DE92246634000929184 /* bee-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD02246633F00929184 /* bee-3.jpg */; };
+		3A506DEA2246634000929184 /* dog-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD12246633F00929184 /* dog-3.jpg */; };
+		3A506DEB2246634000929184 /* bee-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD22246633F00929184 /* bee-2.jpg */; };
+		3A506DEC2246634000929184 /* dog-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD32246633F00929184 /* dog-5.jpg */; };
+		3A506DED2246634000929184 /* bee-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD42246633F00929184 /* bee-4.jpg */; };
+		3A506DEE2246634000929184 /* bull-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD52246633F00929184 /* bull-3.jpg */; };
+		3A506DEF2246634000929184 /* bull-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD62246633F00929184 /* bull-4.jpg */; };
+		3A506DF02246634000929184 /* cat-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD72246633F00929184 /* cat-4.jpg */; };
+		3A506DF12246634000929184 /* cat-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD82246633F00929184 /* cat-1.jpg */; };
+		3A506DF22246634000929184 /* cat-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DD92246633F00929184 /* cat-2.jpg */; };
+		3A506DF32246634000929184 /* bull-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DDA2246633F00929184 /* bull-2.jpg */; };
+		3A506DF42246634000929184 /* dog-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DDB2246633F00929184 /* dog-4.jpg */; };
+		3A506DF52246634000929184 /* cat-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DDC2246634000929184 /* cat-3.jpg */; };
+		3A506DF62246634000929184 /* eagle-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DDD2246634000929184 /* eagle-2.jpg */; };
+		3A506DF72246634000929184 /* eagle-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DDE2246634000929184 /* eagle-3.jpg */; };
+		3A506DF82246634000929184 /* bee-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DDF2246634000929184 /* bee-5.jpg */; };
+		3A506DF92246634000929184 /* dog-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DE02246634000929184 /* dog-1.jpg */; };
+		3A506DFA2246634000929184 /* dog-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DE12246634000929184 /* dog-2.jpg */; };
+		3A506E002246634B00929184 /* snake-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DFB2246634A00929184 /* snake-5.jpg */; };
+		3A506E012246634B00929184 /* snake-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DFC2246634A00929184 /* snake-1.jpg */; };
+		3A506E022246634B00929184 /* snake-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DFD2246634B00929184 /* snake-3.jpg */; };
+		3A506E032246634B00929184 /* snake-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DFE2246634B00929184 /* snake-4.jpg */; };
+		3A506E042246634B00929184 /* snake-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506DFF2246634B00929184 /* snake-2.jpg */; };
 		3ACC01CC22446D8900AAAA20 /* MagneticCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01BE22446D8800AAAA20 /* MagneticCapturer.swift */; };
 		3ACC01CD22446D8900AAAA20 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01BF22446D8800AAAA20 /* Sight.swift */; };
 		3ACC01CE22446D8900AAAA20 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C022446D8800AAAA20 /* Colors.swift */; };
@@ -51,6 +83,38 @@
 		3A3C6184223D261E0020FD3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3C6198223D26530020FD3D /* Sight.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Sight.xcconfig; sourceTree = "<group>"; };
 		3A3C6199223D28210020FD3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A506DC52246601300929184 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewController.swift; path = ../Playground/Sight.playground/Sources/IntroViewController.swift; sourceTree = SOURCE_ROOT; };
+		3A506DC72246609000929184 /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroView.swift; path = ../../Playground/Sight.playground/Sources/IntroView.swift; sourceTree = "<group>"; };
+		3A506DC92246633E00929184 /* bull-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bull-5.jpg"; path = "../../Playground/Sight.playground/Resources/bull-5.jpg"; sourceTree = "<group>"; };
+		3A506DCA2246633E00929184 /* cat-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "cat-5.jpg"; path = "../../Playground/Sight.playground/Resources/cat-5.jpg"; sourceTree = "<group>"; };
+		3A506DCB2246633E00929184 /* bee-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bee-1.jpg"; path = "../../Playground/Sight.playground/Resources/bee-1.jpg"; sourceTree = "<group>"; };
+		3A506DCC2246633F00929184 /* eagle-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "eagle-5.jpg"; path = "../../Playground/Sight.playground/Resources/eagle-5.jpg"; sourceTree = "<group>"; };
+		3A506DCD2246633F00929184 /* eagle-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "eagle-4.jpg"; path = "../../Playground/Sight.playground/Resources/eagle-4.jpg"; sourceTree = "<group>"; };
+		3A506DCE2246633F00929184 /* eagle-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "eagle-1.jpg"; path = "../../Playground/Sight.playground/Resources/eagle-1.jpg"; sourceTree = "<group>"; };
+		3A506DCF2246633F00929184 /* bull-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bull-1.jpg"; path = "../../Playground/Sight.playground/Resources/bull-1.jpg"; sourceTree = "<group>"; };
+		3A506DD02246633F00929184 /* bee-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bee-3.jpg"; path = "../../Playground/Sight.playground/Resources/bee-3.jpg"; sourceTree = "<group>"; };
+		3A506DD12246633F00929184 /* dog-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "dog-3.jpg"; path = "../../Playground/Sight.playground/Resources/dog-3.jpg"; sourceTree = "<group>"; };
+		3A506DD22246633F00929184 /* bee-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bee-2.jpg"; path = "../../Playground/Sight.playground/Resources/bee-2.jpg"; sourceTree = "<group>"; };
+		3A506DD32246633F00929184 /* dog-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "dog-5.jpg"; path = "../../Playground/Sight.playground/Resources/dog-5.jpg"; sourceTree = "<group>"; };
+		3A506DD42246633F00929184 /* bee-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bee-4.jpg"; path = "../../Playground/Sight.playground/Resources/bee-4.jpg"; sourceTree = "<group>"; };
+		3A506DD52246633F00929184 /* bull-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bull-3.jpg"; path = "../../Playground/Sight.playground/Resources/bull-3.jpg"; sourceTree = "<group>"; };
+		3A506DD62246633F00929184 /* bull-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bull-4.jpg"; path = "../../Playground/Sight.playground/Resources/bull-4.jpg"; sourceTree = "<group>"; };
+		3A506DD72246633F00929184 /* cat-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "cat-4.jpg"; path = "../../Playground/Sight.playground/Resources/cat-4.jpg"; sourceTree = "<group>"; };
+		3A506DD82246633F00929184 /* cat-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "cat-1.jpg"; path = "../../Playground/Sight.playground/Resources/cat-1.jpg"; sourceTree = "<group>"; };
+		3A506DD92246633F00929184 /* cat-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "cat-2.jpg"; path = "../../Playground/Sight.playground/Resources/cat-2.jpg"; sourceTree = "<group>"; };
+		3A506DDA2246633F00929184 /* bull-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bull-2.jpg"; path = "../../Playground/Sight.playground/Resources/bull-2.jpg"; sourceTree = "<group>"; };
+		3A506DDB2246633F00929184 /* dog-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "dog-4.jpg"; path = "../../Playground/Sight.playground/Resources/dog-4.jpg"; sourceTree = "<group>"; };
+		3A506DDC2246634000929184 /* cat-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "cat-3.jpg"; path = "../../Playground/Sight.playground/Resources/cat-3.jpg"; sourceTree = "<group>"; };
+		3A506DDD2246634000929184 /* eagle-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "eagle-2.jpg"; path = "../../Playground/Sight.playground/Resources/eagle-2.jpg"; sourceTree = "<group>"; };
+		3A506DDE2246634000929184 /* eagle-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "eagle-3.jpg"; path = "../../Playground/Sight.playground/Resources/eagle-3.jpg"; sourceTree = "<group>"; };
+		3A506DDF2246634000929184 /* bee-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "bee-5.jpg"; path = "../../Playground/Sight.playground/Resources/bee-5.jpg"; sourceTree = "<group>"; };
+		3A506DE02246634000929184 /* dog-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "dog-1.jpg"; path = "../../Playground/Sight.playground/Resources/dog-1.jpg"; sourceTree = "<group>"; };
+		3A506DE12246634000929184 /* dog-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "dog-2.jpg"; path = "../../Playground/Sight.playground/Resources/dog-2.jpg"; sourceTree = "<group>"; };
+		3A506DFB2246634A00929184 /* snake-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "snake-5.jpg"; path = "../../Playground/Sight.playground/Resources/snake-5.jpg"; sourceTree = "<group>"; };
+		3A506DFC2246634A00929184 /* snake-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "snake-1.jpg"; path = "../../Playground/Sight.playground/Resources/snake-1.jpg"; sourceTree = "<group>"; };
+		3A506DFD2246634B00929184 /* snake-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "snake-3.jpg"; path = "../../Playground/Sight.playground/Resources/snake-3.jpg"; sourceTree = "<group>"; };
+		3A506DFE2246634B00929184 /* snake-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "snake-4.jpg"; path = "../../Playground/Sight.playground/Resources/snake-4.jpg"; sourceTree = "<group>"; };
+		3A506DFF2246634B00929184 /* snake-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "snake-2.jpg"; path = "../../Playground/Sight.playground/Resources/snake-2.jpg"; sourceTree = "<group>"; };
 		3AAAB0C4223D25530072305E /* Sight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACC01BE22446D8800AAAA20 /* MagneticCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagneticCapturer.swift; path = ../Playground/Sight.playground/Sources/MagneticCapturer.swift; sourceTree = SOURCE_ROOT; };
 		3ACC01BF22446D8800AAAA20 /* Sight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sight.swift; path = ../Playground/Sight.playground/Sources/Sight.swift; sourceTree = SOURCE_ROOT; };
@@ -127,6 +191,15 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
+		3A506DC422465FF800929184 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				3A506DC52246601300929184 /* IntroViewController.swift */,
+				3A506DC72246609000929184 /* IntroView.swift */,
+			);
+			name = Intro;
+			sourceTree = "<group>";
+		};
 		3AAAB0BB223D25520072305E = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +221,7 @@
 		3ACC01BD22446D7B00AAAA20 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				3A506DC422465FF800929184 /* Intro */,
 				3ACC020122446E1F00AAAA20 /* Main */,
 				3ACC020222446E3000AAAA20 /* Models */,
 				3ACC020422446E5B00AAAA20 /* Views */,
@@ -159,6 +233,31 @@
 		3ACC01DA22446E0100AAAA20 /* Playground */ = {
 			isa = PBXGroup;
 			children = (
+				3A506DCB2246633E00929184 /* bee-1.jpg */,
+				3A506DD22246633F00929184 /* bee-2.jpg */,
+				3A506DD02246633F00929184 /* bee-3.jpg */,
+				3A506DD42246633F00929184 /* bee-4.jpg */,
+				3A506DDF2246634000929184 /* bee-5.jpg */,
+				3A506DCF2246633F00929184 /* bull-1.jpg */,
+				3A506DDA2246633F00929184 /* bull-2.jpg */,
+				3A506DD52246633F00929184 /* bull-3.jpg */,
+				3A506DD62246633F00929184 /* bull-4.jpg */,
+				3A506DC92246633E00929184 /* bull-5.jpg */,
+				3A506DD82246633F00929184 /* cat-1.jpg */,
+				3A506DD92246633F00929184 /* cat-2.jpg */,
+				3A506DDC2246634000929184 /* cat-3.jpg */,
+				3A506DD72246633F00929184 /* cat-4.jpg */,
+				3A506DCA2246633E00929184 /* cat-5.jpg */,
+				3A506DE02246634000929184 /* dog-1.jpg */,
+				3A506DE12246634000929184 /* dog-2.jpg */,
+				3A506DD12246633F00929184 /* dog-3.jpg */,
+				3A506DDB2246633F00929184 /* dog-4.jpg */,
+				3A506DD32246633F00929184 /* dog-5.jpg */,
+				3A506DCE2246633F00929184 /* eagle-1.jpg */,
+				3A506DDD2246634000929184 /* eagle-2.jpg */,
+				3A506DDE2246634000929184 /* eagle-3.jpg */,
+				3A506DCD2246633F00929184 /* eagle-4.jpg */,
+				3A506DCC2246633F00929184 /* eagle-5.jpg */,
 				3ACC020522446FE400AAAA20 /* heatmap@1x.png */,
 				3ACC020622446FE400AAAA20 /* heatmap@2x.png */,
 				3ACC01DC22446E1000AAAA20 /* heatmap@3x.png */,
@@ -174,6 +273,11 @@
 				3ACC01DE22446E1000AAAA20 /* pole@1x.png */,
 				3ACC01E622446E1100AAAA20 /* pole@2x.png */,
 				3ACC01E222446E1100AAAA20 /* pole@3x.png */,
+				3A506DFC2246634A00929184 /* snake-1.jpg */,
+				3A506DFF2246634B00929184 /* snake-2.jpg */,
+				3A506DFD2246634B00929184 /* snake-3.jpg */,
+				3A506DFE2246634B00929184 /* snake-4.jpg */,
+				3A506DFB2246634A00929184 /* snake-5.jpg */,
 				3ACC01E922446E1100AAAA20 /* sun@1x.png */,
 				3ACC01DB22446E1000AAAA20 /* sun@2x.png */,
 				3ACC01EB22446E1100AAAA20 /* sun@3x.png */,
@@ -284,27 +388,57 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A506DE62246634000929184 /* eagle-4.jpg in Resources */,
 				3ACC01FF22446E1100AAAA20 /* switch@1x.png in Resources */,
 				3ACC01F122446E1100AAAA20 /* pole@1x.png in Resources */,
+				3A506DEB2246634000929184 /* bee-2.jpg in Resources */,
+				3A506DF52246634000929184 /* cat-3.jpg in Resources */,
+				3A506DF02246634000929184 /* cat-4.jpg in Resources */,
 				3ACC01F422446E1100AAAA20 /* knob@1x.png in Resources */,
+				3A506DEF2246634000929184 /* bull-4.jpg in Resources */,
+				3A506DF72246634000929184 /* eagle-3.jpg in Resources */,
+				3A506DF32246634000929184 /* bull-2.jpg in Resources */,
+				3A506DE22246634000929184 /* bull-5.jpg in Resources */,
+				3A506DF12246634000929184 /* cat-1.jpg in Resources */,
+				3A506DE52246634000929184 /* eagle-5.jpg in Resources */,
 				3ACC01FD22446E1100AAAA20 /* indicator@2x.png in Resources */,
 				3A3C619A223D28210020FD3D /* Assets.xcassets in Resources */,
 				3ACC01F522446E1100AAAA20 /* pole@3x.png in Resources */,
+				3A506DF62246634000929184 /* eagle-2.jpg in Resources */,
+				3A506E012246634B00929184 /* snake-1.jpg in Resources */,
 				3ACC01F322446E1100AAAA20 /* switch@2x.png in Resources */,
+				3A506E042246634B00929184 /* snake-2.jpg in Resources */,
+				3A506DF82246634000929184 /* bee-5.jpg in Resources */,
 				3ACC01FA22446E1100AAAA20 /* knob@3x.png in Resources */,
 				3ACC01F722446E1100AAAA20 /* moon@3x.png in Resources */,
+				3A506DE92246634000929184 /* bee-3.jpg in Resources */,
+				3A506DE32246634000929184 /* cat-5.jpg in Resources */,
+				3A506DE42246634000929184 /* bee-1.jpg in Resources */,
 				3ACC020722446FE400AAAA20 /* heatmap@1x.png in Resources */,
+				3A506E022246634B00929184 /* snake-3.jpg in Resources */,
+				3A506DF42246634000929184 /* dog-4.jpg in Resources */,
+				3A506DEE2246634000929184 /* bull-3.jpg in Resources */,
 				3ACC01F622446E1100AAAA20 /* switch@3x.png in Resources */,
+				3A506E032246634B00929184 /* snake-4.jpg in Resources */,
+				3A506DEA2246634000929184 /* dog-3.jpg in Resources */,
+				3A506DEC2246634000929184 /* dog-5.jpg in Resources */,
+				3A506E002246634B00929184 /* snake-5.jpg in Resources */,
+				3A506DFA2246634000929184 /* dog-2.jpg in Resources */,
 				3ACC01FB22446E1100AAAA20 /* indicator@1x.png in Resources */,
 				3ACC01FE22446E1100AAAA20 /* sun@3x.png in Resources */,
+				3A506DE82246634000929184 /* bull-1.jpg in Resources */,
 				3ACC020822446FE400AAAA20 /* heatmap@2x.png in Resources */,
 				3ACC01F022446E1100AAAA20 /* moon@2x.png in Resources */,
+				3A506DED2246634000929184 /* bee-4.jpg in Resources */,
+				3A506DF92246634000929184 /* dog-1.jpg in Resources */,
 				3ACC01EE22446E1100AAAA20 /* sun@2x.png in Resources */,
 				3ACC020022446E1100AAAA20 /* knob@2x.png in Resources */,
+				3A506DE72246634000929184 /* eagle-1.jpg in Resources */,
 				3ACC01F222446E1100AAAA20 /* moon@1x.png in Resources */,
 				3ACC01FC22446E1100AAAA20 /* sun@1x.png in Resources */,
 				3ACC01F922446E1100AAAA20 /* pole@2x.png in Resources */,
 				3ACC01EF22446E1100AAAA20 /* heatmap@3x.png in Resources */,
+				3A506DF22246634000929184 /* cat-2.jpg in Resources */,
 				3ACC01F822446E1100AAAA20 /* indicator@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,8 +463,10 @@
 				3ACC01CE22446D8900AAAA20 /* Colors.swift in Sources */,
 				3ACC01D622446D8900AAAA20 /* SightView.swift in Sources */,
 				3ACC01D222446D8900AAAA20 /* DockView.swift in Sources */,
+				3A506DC82246609100929184 /* IntroView.swift in Sources */,
 				3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */,
 				3ACC01CC22446D8900AAAA20 /* MagneticCapturer.swift in Sources */,
+				3A506DC62246601300929184 /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

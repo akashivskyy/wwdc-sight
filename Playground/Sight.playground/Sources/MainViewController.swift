@@ -8,10 +8,13 @@ public final class MainViewController: UIViewController {
 
     // MARK: Types
 
+    /// Represents the mode of preview.
     fileprivate enum Mode {
 
+        /// Dat mode.
         case day
 
+        /// Night mode.
         case night
 
     }
@@ -45,10 +48,13 @@ public final class MainViewController: UIViewController {
         }
     }
 
+    /// The current mode of preview.
     private var currentMode: Mode = .day
 
+    /// The current right-hand-side sight index.
     private var currentIndex: Int = 0
 
+    /// The current right-hand-side sight.
     private var currentRightSight: Sight {
         if currentIndex < rightSights.count {
             return rightSights[currentIndex]
@@ -57,6 +63,7 @@ public final class MainViewController: UIViewController {
         }
     }
 
+    /// The current left-hand-side sight descripor.
     private var currentLeftSightDescriptor: SightDescriptor {
         if currentMode == .night && currentSightsAreNocturnal {
             return leftSight.sightSet.night
@@ -65,6 +72,7 @@ public final class MainViewController: UIViewController {
         }
     }
 
+    /// The current right-hand-side sight descripor.
     private var currentRightSightDescriptor: SightDescriptor {
         if currentMode == .night && currentSightsAreNocturnal {
             return currentRightSight.sightSet.night
@@ -73,6 +81,7 @@ public final class MainViewController: UIViewController {
         }
     }
 
+    /// Whether the current sights are both nocturnal.
     private var currentSightsAreNocturnal: Bool {
         return leftSight.sightSet.isNocturnal && currentRightSight.sightSet.isNocturnal
     }
