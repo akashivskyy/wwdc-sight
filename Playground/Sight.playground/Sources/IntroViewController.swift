@@ -58,16 +58,4 @@ public final class IntroViewController: UIViewController {
 
     }
 
-    /// - SeeAlso: UIViewController.viewWillTransition(to:with:)
-    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        switch UIDevice.current.orientation {
-            case .unknown: Orientation.current = .unknown
-            case .portrait: Orientation.current = .portrait
-            case .portraitUpsideDown: Orientation.current = .portraitUpsideDown
-            case .landscapeLeft: Orientation.current = .landscapeRight
-            case .landscapeRight: Orientation.current = .landscapeLeft
-            case .faceUp, .faceDown: break
-        }
-    }
-
 }

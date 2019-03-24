@@ -31,11 +31,11 @@ internal final class CameraView: UIView, MTKViewDelegate {
     /// The position of capturing device.
     internal var devicePosition: CameraCapturer.DevicePosition = .back
 
+    /// The current device orientation.
+    internal var deviceOrientation: UIInterfaceOrientation = .unknown
+
     /// The CoreImage filters to be applied.
     internal var filters: [Effect.Filter] = []
-
-    /// The current device orientation.
-    internal var orientation: UIInterfaceOrientation = .unknown
 
     #if !targetEnvironment(simulator)
 
@@ -116,15 +116,15 @@ internal final class CameraView: UIView, MTKViewDelegate {
         guard let drawable = view.currentDrawable else { return }
 
         let rotation: CGImagePropertyOrientation = {
-            switch (orientation, devicePosition) {
-                case (.unknown, .back), (.portrait, .back): return .right
-                case (.unknown, .front), (.portrait, .front): return .leftMirrored
-                case (.portraitUpsideDown, .back): return .left
-                case (.portraitUpsideDown, .front): return .leftMirrored
-                case (.landscapeLeft, .back): return .down
-                case (.landscapeLeft, .front): return .downMirrored
-                case (.landscapeRight, .back): return .up
-                case (.landscapeRight, .front): return .upMirrored
+            switch (deviceOrientation, devicePosition) {
+                case (.unknown, .back), (.portrait, .back): return .up
+                case (.unknown, .front), (.portrait, .front): return .upMirrored
+                case (.portraitUpsideDown, .back): return .down
+                case (.portraitUpsideDown, .front): return .downMirrored
+                case (.landscapeLeft, .back): return .right
+                case (.landscapeLeft, .front): return .rightMirrored
+                case (.landscapeRight, .back): return .left
+                case (.landscapeRight, .front): return .leftMirrored
             }
         }()
 

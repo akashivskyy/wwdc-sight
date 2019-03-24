@@ -45,7 +45,6 @@
 		3A506E092246729E00929184 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A506E062246729E00929184 /* logo.png */; };
 		3A506E0A2246729E00929184 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A506E072246729E00929184 /* logo@2x.png */; };
 		3A506E0C2246853400929184 /* akashivskyy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3A506E0B2246853400929184 /* akashivskyy.jpg */; };
-		3A506E0E2246A1FC00929184 /* Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A506E0D2246A1FC00929184 /* Orientation.swift */; };
 		3ACC01CC22446D8900AAAA20 /* MagneticCapturer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01BE22446D8800AAAA20 /* MagneticCapturer.swift */; };
 		3ACC01CD22446D8900AAAA20 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01BF22446D8800AAAA20 /* Sight.swift */; };
 		3ACC01CE22446D8900AAAA20 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ACC01C022446D8800AAAA20 /* Colors.swift */; };
@@ -124,7 +123,6 @@
 		3A506E062246729E00929184 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../Playground/Sight.playground/Resources/logo.png; sourceTree = SOURCE_ROOT; };
 		3A506E072246729E00929184 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo@2x.png"; path = "../Playground/Sight.playground/Resources/logo@2x.png"; sourceTree = SOURCE_ROOT; };
 		3A506E0B2246853400929184 /* akashivskyy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = akashivskyy.jpg; path = ../../Playground/Sight.playground/Resources/akashivskyy.jpg; sourceTree = "<group>"; };
-		3A506E0D2246A1FC00929184 /* Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Orientation.swift; path = ../Playground/Sight.playground/Sources/Orientation.swift; sourceTree = SOURCE_ROOT; };
 		3AAAB0C4223D25530072305E /* Sight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ACC01BE22446D8800AAAA20 /* MagneticCapturer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagneticCapturer.swift; path = ../Playground/Sight.playground/Sources/MagneticCapturer.swift; sourceTree = SOURCE_ROOT; };
 		3ACC01BF22446D8800AAAA20 /* Sight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Sight.swift; path = ../Playground/Sight.playground/Sources/Sight.swift; sourceTree = SOURCE_ROOT; };
@@ -317,7 +315,6 @@
 				3ACC01C022446D8800AAAA20 /* Colors.swift */,
 				3ACC01CB22446D8900AAAA20 /* Effects.swift */,
 				3ACC01BF22446D8800AAAA20 /* Sight.swift */,
-				3A506E0D2246A1FC00929184 /* Orientation.swift */,
 				3ACC01C522446D8900AAAA20 /* Extensions.swift */,
 			);
 			name = Models;
@@ -485,7 +482,6 @@
 				3A506DC82246609100929184 /* IntroView.swift in Sources */,
 				3A3C6182223D26150020FD3D /* AppDelegate.swift in Sources */,
 				3ACC01CC22446D8900AAAA20 /* MagneticCapturer.swift in Sources */,
-				3A506E0E2246A1FC00929184 /* Orientation.swift in Sources */,
 				3A506DC62246601300929184 /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

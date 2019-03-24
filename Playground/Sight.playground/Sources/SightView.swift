@@ -50,9 +50,9 @@ internal final class SightView: UIView {
     }
 
     /// Shortcut access to underlying camera view's device position.
-    internal var cameraOrientation: UIInterfaceOrientation {
-        get { return cameraView.orientation }
-        set { cameraView.orientation = newValue }
+    internal var deviceOrientation: UIInterfaceOrientation {
+        get { return cameraView.deviceOrientation }
+        set { cameraView.deviceOrientation = newValue }
     }
 
     /// Shortcut access to underlying magnetic view's heading.

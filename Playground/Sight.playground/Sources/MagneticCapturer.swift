@@ -20,9 +20,9 @@ internal final class MagneticCapturer {
     }
 
     // MARK: Properties
-    
+
     /// The current device orientation.
-    internal var orientation: UIInterfaceOrientation = .unknown
+    internal var deviceOrientation: UIInterfaceOrientation = .unknown
 
     /// The CoreLocation manager that delivers heading data.
     private lazy var locationManager: CLLocationManager = {
@@ -80,16 +80,14 @@ internal final class MagneticCapturer {
 
     /// Recalibrate CoreLocation manager heading readings.
     private func recalibrate() {
-
         locationManager.headingOrientation = {
-            switch orientation {
+            switch deviceOrientation {
                 case .unknown, .portrait: return .portrait
                 case .portraitUpsideDown: return .portraitUpsideDown
                 case .landscapeLeft: return .landscapeRight
                 case .landscapeRight: return .landscapeLeft
             }
         }()
-
     }
 
 }

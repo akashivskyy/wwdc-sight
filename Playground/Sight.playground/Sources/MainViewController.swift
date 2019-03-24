@@ -86,6 +86,11 @@ public final class MainViewController: UIViewController {
         return leftSight.sightSet.isNocturnal && currentRightSight.sightSet.isNocturnal
     }
 
+    /// The current interface orientation.
+    private var currentOrientation: UIInterfaceOrientation {
+        return UIInterfaceOrientation(rawValue: value(forKey: "interfaceOrientation") as! Int)!
+    }
+
     /// The camera capturer instance.
     private lazy var cameraCapturer: CameraCapturer = {
         CameraCapturer()
@@ -207,14 +212,16 @@ public final class MainViewController: UIViewController {
         mainView.leftView.magneticDevicePosition = cameraCapturer.position
         mainView.rightView.magneticDevicePosition = cameraCapturer.position
 
+        mainView.leftView.deviceOrientation = currentOrientation
+        mainView.rightView.deviceOrientation = currentOrientation
+        magneticCapturer.deviceOrientation = currentOrientation
+
     }
 
     /// - SeeAlso: UIViewController.viewWillTransition(to:with:)
     public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [unowned self] in
-            self.mainView.leftView.cameraOrientation = self.interfaceOrientation
-            self.mainView.rightView.cameraOrientation = self.interfaceOrientation
-            self.magneticCapturer.orientation = self.interfaceOrientation
+            self.updateCurrentSights()
         }
     }
 
