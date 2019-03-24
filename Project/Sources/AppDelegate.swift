@@ -8,6 +8,10 @@ import UIKit
 
     // MARK: Hierarchy
 
+    private lazy var introViewController: IntroViewController = {
+        IntroViewController()
+    }()
+
     private lazy var mainViewController: MainViewController = {
         MainViewController()
     }()
@@ -33,11 +37,9 @@ import UIKit
         mainViewController.leftSight = human
         mainViewController.rightSights = [dog, cat, eagle, bull, snake, bee]
 
-        let introViewController = IntroViewController()
-
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = mainViewController
-//        window!.rootViewController = introViewController
+        window!.rootViewController = introViewController
+//        window!.rootViewController = mainViewController
         window!.makeKeyAndVisible()
 
         return true

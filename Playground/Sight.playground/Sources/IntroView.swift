@@ -52,7 +52,8 @@ internal final class IntroView: UIView {
 
     private lazy var taglineLabel: UILabel = {
         with(UILabel()) {
-            $0.font = .systemFont(ofSize: 32, weight: .bold)
+            $0.numberOfLines = 0
+            $0.font = .systemFont(ofSize: 24, weight: .bold)
             $0.textColor = .white
             $0.textAlignment = .center
             $0.text = "WWDC19 Scholarship Submission"
@@ -61,7 +62,7 @@ internal final class IntroView: UIView {
 
     private lazy var byLabel: UILabel = {
         with(UILabel()) {
-            $0.font = .systemFont(ofSize: 24, weight: .regular)
+            $0.font = .systemFont(ofSize: 16, weight: .regular)
             $0.textColor = .white
             $0.textAlignment = .center
             $0.text = "by"
@@ -72,14 +73,14 @@ internal final class IntroView: UIView {
         with(UIImageView()) {
             $0.image = UIImage(contentsOfFile: Bundle.main.path(forResource: "akashivskyy", ofType: "jpg")!)!
             $0.layer.borderColor = UIColor.white.cgColor
-            $0.layer.borderWidth = 3
+            $0.layer.borderWidth = 1
             $0.layer.masksToBounds = true
         }
     }()
 
     private lazy var nameLabel: UILabel = {
         with(UILabel()) {
-            $0.font = .systemFont(ofSize: 32, weight: .light)
+            $0.font = .systemFont(ofSize: 24, weight: .light)
             $0.textColor = .white
             $0.textAlignment = .center
             $0.text = "Adrian Kashivskyy"
@@ -115,26 +116,35 @@ internal final class IntroView: UIView {
         }
     }()
 
+    private lazy var nameStackView: UIStackView = {
+        with(UIStackView()) {
+            $0.axis = .horizontal
+            $0.alignment = .center
+            $0.spacing = 8
+        }
+    }()
+
     // MARK: Lifecycle
 
     /// Set up view hierarchy.
     private func setup() {
 
-        let logoHeight: CGFloat = 120
-        let photoSize: CGFloat = 120
+        let logoHeight: CGFloat = 80
+        let photoSize: CGFloat = 30
 
         photoImageView.layer.cornerRadius = photoSize / 2
+
+        nameStackView.addArrangedSubview(photoImageView)
+        nameStackView.addArrangedSubview(nameLabel)
 
         stackView.addArrangedSubview(logoImageView)
         stackView.addArrangedSubview(taglineLabel)
         stackView.addArrangedSubview(byLabel)
-        stackView.addArrangedSubview(photoImageView)
-        stackView.addArrangedSubview(nameLabel)
+        stackView.addArrangedSubview(nameStackView)
 
-        stackView.setCustomSpacing(16, after: logoImageView)
-        stackView.setCustomSpacing(32, after: taglineLabel)
-        stackView.setCustomSpacing(32, after: byLabel)
-        stackView.setCustomSpacing(8, after: photoImageView)
+        stackView.setCustomSpacing(12, after: logoImageView)
+        stackView.setCustomSpacing(12, after: taglineLabel)
+        stackView.setCustomSpacing(12, after: byLabel)
 
         addSubview(eyesImageView)
         addSubview(dimView)
@@ -168,7 +178,7 @@ internal final class IntroView: UIView {
             stackView.leftAnchor.constraint(greaterThanOrEqualTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
             stackView.rightAnchor.constraint(lessThanOrEqualTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
             stackView.centerXAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerXAnchor).withPriority(.defaultHigh),
-            stackView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor).withPriority(.defaultHigh),
+            stackView.centerYAnchor.constraint(equalTo: self.safeAreaLayoutGuide.centerYAnchor, constant: -8).withPriority(.defaultHigh),
         ])
 
         addConstraints([
@@ -309,16 +319,35 @@ internal final class IntroView: UIView {
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
-            options: [.repeat, .autoreverse, .curveEaseInOut],
+            options: [.curveEaseInOut],
             animations: { [unowned self] in
                 self.instructionArrowConstraint.constant = 16
                 self.layoutIfNeeded()
             },
-            completion: { [weak self] _ in
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                    self?.instructionArrowConstraint.constant = 8
-                    self?.layoutIfNeeded()
-                    self?.restartInstructionArrowAnimation()
+            completion: { [unowned self] completed in
+                if completed {
+                    UIView.animate(
+                        withDuration: 0.5,
+                        delay: 0,
+                        options: [.curveEaseInOut],
+                        animations: { [unowned self] in
+                            self.instructionArrowConstraint.constant = 8
+                            self.layoutIfNeeded()
+                        },
+                        completion: { [unowned self] _ in
+                            if completed {
+                                self.restartInstructionArrowAnimation()
+                            } else {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                    self.restartInstructionArrowAnimation()
+                                }
+                            }
+                        }
+                    )
+                } else {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                        self.restartInstructionArrowAnimation()
+                    }
                 }
             }
         )
