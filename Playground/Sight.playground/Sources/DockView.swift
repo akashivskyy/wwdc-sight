@@ -57,7 +57,7 @@ internal final class DockView: UIView {
     private lazy var buttonsStackView: UIStackView = {
         with(UIStackView()) {
             $0.axis = .vertical
-            $0.spacing = 16
+            $0.spacing = 8
         }
     }()
 
@@ -83,7 +83,7 @@ internal final class DockView: UIView {
     private lazy var indicatorsStackView: UIStackView = {
         with(UIStackView()) {
             $0.axis = .vertical
-            $0.spacing = 16
+            $0.spacing = 8
         }
     }()
 
@@ -161,6 +161,12 @@ internal final class DockView: UIView {
         }
     }()
 
+    private lazy var buttonsScrollView: UIScrollView = {
+        with(UIScrollView()) {
+            $0.showsVerticalScrollIndicator = false
+        }
+    }()
+
     // MARK: Lifecycle
 
     /// Set up view hierarchy.
@@ -174,26 +180,35 @@ internal final class DockView: UIView {
         controlsStackView.addArrangedSubview(nightButton)
         controlsStackView.addArrangedSubview(switchButton)
 
-        addSubview(buttonsStackView)
-        addSubview(indicatorsStackView)
+        buttonsScrollView.addSubview(buttonsStackView)
+        buttonsScrollView.addSubview(indicatorsStackView)
+
+        addSubview(buttonsScrollView)
         addSubview(controlsStackView)
 
+        buttonsScrollView.translatesAutoresizingMaskIntoConstraints = false
         buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
         indicatorsStackView.translatesAutoresizingMaskIntoConstraints = false
         controlsStackView.translatesAutoresizingMaskIntoConstraints = false
 
         addConstraints([
-            buttonsStackView.topAnchor.constraint(greaterThanOrEqualTo: self.topAnchor),
-            buttonsStackView.bottomAnchor.constraint(lessThanOrEqualTo: controlsStackView.topAnchor, constant: -16),
-            buttonsStackView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            buttonsStackView.topAnchor.constraint(greaterThanOrEqualTo: buttonsScrollView.topAnchor),
+            buttonsStackView.bottomAnchor.constraint(lessThanOrEqualTo: buttonsScrollView.bottomAnchor),
+            buttonsStackView.leftAnchor.constraint(equalTo: buttonsScrollView.leftAnchor),
             buttonsStackView.rightAnchor.constraint(equalTo: indicatorsStackView.leftAnchor, constant: -4),
-            buttonsStackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).withPriority(.defaultHigh),
         ])
 
         addConstraints([
             indicatorsStackView.topAnchor.constraint(equalTo: buttonsStackView.topAnchor),
             indicatorsStackView.bottomAnchor.constraint(equalTo: buttonsStackView.bottomAnchor),
-            indicatorsStackView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            indicatorsStackView.rightAnchor.constraint(equalTo: buttonsScrollView.rightAnchor),
+        ])
+
+        addConstraints([
+            buttonsScrollView.topAnchor.constraint(equalTo: self.topAnchor),
+            buttonsScrollView.bottomAnchor.constraint(equalTo: controlsStackView.topAnchor, constant: -16),
+            buttonsScrollView.leftAnchor.constraint(equalTo: self.leftAnchor),
+            buttonsScrollView.rightAnchor.constraint(equalTo: self.rightAnchor),
         ])
 
         addConstraints([

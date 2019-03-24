@@ -80,7 +80,7 @@ internal final class SightView: UIView {
     private lazy var iconLabel: UILabel = {
         with(UILabel()) {
             $0.numberOfLines = 1
-            $0.font = .systemFont(ofSize: 48, weight: .bold)
+            $0.font = .systemFont(ofSize: 32, weight: .bold)
             $0.textColor = .white
             $0.textAlignment = .center
             $0.adjustsFontSizeToFitWidth = true

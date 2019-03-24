@@ -156,7 +156,7 @@ public struct Effect {
         return filter(
             name: "CIColorControls",
             parameters: [
-                "inputSaturation": 1 +  adjustment  //clamp(adjustment, within: -1...1)
+                "inputSaturation": 1 + adjustment
             ]
         )
     }
@@ -248,7 +248,7 @@ public struct Effect {
                         ]
                     )!
                 },
-                bump(radius: 2, scale: -0.5)
+                bump(radius: 1.5, scale: -0.5)
             )
         } else {
             return concat(

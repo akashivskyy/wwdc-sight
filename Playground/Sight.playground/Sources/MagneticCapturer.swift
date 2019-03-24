@@ -2,6 +2,7 @@
 // Copyright © 2019 Adrian Kashivskyy. All rights reserved.
 
 import CoreLocation
+import CoreMotion
 import Foundation
 import UIKit
 
@@ -22,7 +23,11 @@ internal final class MagneticCapturer {
     // MARK: Properties
 
     /// The current device orientation.
-    internal var deviceOrientation: UIInterfaceOrientation = .unknown
+    internal var deviceOrientation: UIInterfaceOrientation = .unknown {
+        didSet {
+            recalibrate()
+        }
+    }
 
     /// The CoreLocation manager that delivers heading data.
     private lazy var locationManager: CLLocationManager = {
@@ -33,10 +38,7 @@ internal final class MagneticCapturer {
     private var locationTimer: Timer?
 
     /// Callback on heading.
-    private var onHeading: ((CLLocationDirection) -> Void)? = nil
-
-    /// An oberver of orientation changes.
-    private var orientationObserver: AnyObject?
+    private var onHeading: ((CLLocationDirection?) -> Void)? = nil
 
     // MARK: Lifecycle
 
@@ -44,9 +46,14 @@ internal final class MagneticCapturer {
     ///
     /// - Parameters:
     ///     - callback: Callback on heading.
-    internal func start(with onHeading: @escaping (CLLocationDirection) -> Void) {
+    internal func start(_ onHeading: @escaping (CLLocationDirection?) -> Void) {
 
-        guard CLLocationManager.headingAvailable() else { return }
+        locationManager.requestWhenInUseAuthorization()
+
+        guard CLLocationManager.headingAvailable() else {
+            onHeading(nil)
+            return
+        }
 
         locationManager.headingOrientation = .portrait
         locationManager.startUpdatingHeading()
@@ -56,9 +63,7 @@ internal final class MagneticCapturer {
             onHeading(heading.magneticHeading)
         }
 
-        orientationObserver = NotificationCenter.default.addObserver(forName: UIDevice.orientationDidChangeNotification, object: nil, queue: nil) { [unowned self] _ in
-            self.recalibrate()
-        }
+        self.onHeading = onHeading
 
         recalibrate()
 
@@ -67,14 +72,12 @@ internal final class MagneticCapturer {
     /// Stop capturing.
     internal func stop() {
 
+        onHeading?(nil)
+
         locationTimer?.invalidate()
         locationTimer = nil
 
         locationManager.stopUpdatingHeading()
-
-        if let orientationObserver = orientationObserver {
-            NotificationCenter.default.removeObserver(orientationObserver)
-        }
 
     }
 

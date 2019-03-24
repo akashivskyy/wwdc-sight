@@ -71,7 +71,7 @@ internal final class ComparisonView: UIView, UIGestureRecognizerDelegate {
         set { knobViewPositionConstraint.constant = newValue - bounds.midX }
     }
 
-    private let knobViewMargin: CGFloat = 32
+    private let knobViewMargin: CGFloat = 64
 
     // MARK: Lifecycle
 

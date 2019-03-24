@@ -107,6 +107,14 @@ public final class MainViewController: UIViewController {
         MainView()
     }()
 
+    private lazy var consoleLabel: UILabel = {
+        with(UILabel()) {
+            $0.numberOfLines = 0
+            $0.font = UIFont(name: "Menlo-Regular", size: 14)
+            $0.textColor = .white
+        }
+    }()
+
     // MARK: Lifecycle
 
     /// - SeeAlso: UIViewController.preferredStatusBarStyle
@@ -120,14 +128,22 @@ public final class MainViewController: UIViewController {
         super.loadView()
 
         view.addSubview(mainView)
+        view.addSubview(consoleLabel)
 
         mainView.translatesAutoresizingMaskIntoConstraints = false
+        consoleLabel.translatesAutoresizingMaskIntoConstraints = false
 
         view.addConstraints([
             mainView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mainView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             mainView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
             mainView.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor),
+        ])
+
+        view.addConstraints([
+            consoleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            consoleLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 8),
+            consoleLabel.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor, constant: -60),
         ])
 
     }
@@ -169,10 +185,10 @@ public final class MainViewController: UIViewController {
             mainView.rightView.cameraPixelBuffer = $0
         }
 
-        magneticCapturer.start { [unowned mainView] in
+        magneticCapturer.start( { [unowned mainView] in
             mainView.leftView.magneticHeading = $0
             mainView.rightView.magneticHeading = $0
-        }
+        })
 
         updateDockIcons()
         updateCurrentSights()

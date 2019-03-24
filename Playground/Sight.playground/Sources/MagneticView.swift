@@ -62,12 +62,18 @@ internal final class MagneticView: UIView {
         northImageView.sizeToFit()
         southImageView.sizeToFit()
 
+        reposition()
+
     }
 
     /// Reposition the pole visualization.
     private func reposition() {
 
-        guard let heading = heading else { return }
+        guard let heading = heading else {
+            self.northImageView.isHidden = true
+            self.southImageView.isHidden = true
+            return
+        }
 
         let adjustedHeading: CGFloat = {
             switch devicePosition {
