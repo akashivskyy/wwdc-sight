@@ -36,7 +36,7 @@ internal final class DockView: UIView {
         }
     }
 
-
+    /// Whether the day/night button is enabled.
     internal var isDayNightButtonEnabled: Bool = false {
         didSet {
             updateControls()
@@ -46,10 +46,13 @@ internal final class DockView: UIView {
     /// Callback on new selected index.
     internal var onNewSelectedIndex: ((Int) -> Void)?
 
+    /// Callback on night button selected.
     internal var onNightSelected: (() -> Void)?
 
+    /// Callback on day button selected.
     internal var onDaySelected: (() -> Void)?
 
+    /// Callback on switch button selected.
     internal var onSwitchSelected: (() -> Void)?
 
     // MARK: Hierarchy

@@ -167,11 +167,6 @@ internal final class CameraView: UIView, MTKViewDelegate {
 
         let output = pipeline.reduce(input) { input, filter in filter(input, drawableSize).outputImage! }
 
-//        pipeline.first!.setValue(input, forKey: "inputImage")
-//        zip(pipeline.dropFirst(), pipeline).forEach { $0.setValue($1.outputImage!, forKey: "inputImage") }
-
-//        let output = pipeline.last!.outputImage!
-
         context.render(
             output,
             to: drawable.texture,

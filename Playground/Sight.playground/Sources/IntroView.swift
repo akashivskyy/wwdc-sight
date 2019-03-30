@@ -20,6 +20,11 @@ internal final class IntroView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: Properties
+
+    /// Callback on instruction button selected.
+    internal var onInstructionSelected: (() -> Void)?
+
     // MARK: Hierarchy
 
     private lazy var eyesImages: [UIImage] = {
@@ -87,12 +92,11 @@ internal final class IntroView: UIView {
         }
     }()
 
-    private lazy var instructionLabel: UILabel = {
+    internal private(set) lazy var instructionLabel: UILabel = {
         with(UILabel()) {
             $0.font = .systemFont(ofSize: 14, weight: .bold)
             $0.textColor = UIColor(red: 22.0 / 255, green: 220.0 / 255, blue: 234.0 / 255, alpha: 1)
             $0.textAlignment = .center
-            $0.text = "TAP NEXT PAGE TO BEGIN"
         }
     }()
 
@@ -107,6 +111,20 @@ internal final class IntroView: UIView {
 
     private lazy var instructionArrowConstraint: NSLayoutConstraint = {
         instructionArrowLabel.leftAnchor.constraint(equalTo: instructionLabel.rightAnchor, constant: 8)
+    }()
+
+    private lazy var instructionButton: UIButton = {
+        with(UIButton(type: .system)) {
+
+            $0.addTarget(self, action: #selector(instructionButtonDidTouchUpInside), for: .touchUpInside)
+
+            $0.translatesAutoresizingMaskIntoConstraints = false
+
+            $0.addConstraints([
+                $0.heightAnchor.constraint(equalToConstant: 32),
+            ])
+
+        }
     }()
 
     private lazy var stackView: UIStackView = {
@@ -151,12 +169,14 @@ internal final class IntroView: UIView {
         addSubview(stackView)
         addSubview(instructionLabel)
         addSubview(instructionArrowLabel)
+        addSubview(instructionButton)
 
         eyesImageView.translatesAutoresizingMaskIntoConstraints = false
         dimView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         instructionLabel.translatesAutoresizingMaskIntoConstraints = false
         instructionArrowLabel.translatesAutoresizingMaskIntoConstraints = false
+        instructionButton.translatesAutoresizingMaskIntoConstraints = false
 
         addConstraints([
             eyesImageView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -200,6 +220,12 @@ internal final class IntroView: UIView {
             instructionArrowLabel.firstBaselineAnchor.constraint(equalTo: instructionLabel.firstBaselineAnchor),
         ])
 
+        addConstraints([
+            instructionButton.centerYAnchor.constraint(equalTo: self.instructionLabel.centerYAnchor),
+            instructionButton.leftAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leftAnchor, constant: 16),
+            instructionButton.rightAnchor.constraint(equalTo: self.safeAreaLayoutGuide.rightAnchor, constant: -16),
+        ])
+
     }
 
     /// Start animations.
@@ -237,6 +263,7 @@ internal final class IntroView: UIView {
         nameLabel.alpha = 0.0
         instructionLabel.alpha = 0.0
         instructionArrowLabel.alpha = 0.0
+        instructionButton.isEnabled = false
 
         Timer.scheduledTimer(
             withTimeInterval: phaseOneDelay,
@@ -301,6 +328,14 @@ internal final class IntroView: UIView {
             }
         )
 
+        Timer.scheduledTimer(
+            withTimeInterval: instructionDelay,
+            repeats: false,
+            block: { [unowned self] _ in
+                self.instructionButton.isEnabled = true
+            }
+        )
+
         UIView.animate(
             withDuration: instructionDuration,
             delay: instructionDelay,
@@ -351,6 +386,12 @@ internal final class IntroView: UIView {
                 }
             }
         )
+    }
+
+    // MARK: Actions
+
+    @objc private func instructionButtonDidTouchUpInside(_ button: UIButton) {
+        onInstructionSelected?()
     }
 
 }

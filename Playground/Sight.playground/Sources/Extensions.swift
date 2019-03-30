@@ -33,7 +33,7 @@ internal func with<Subject>(_ subject: Subject, _ transform: (_ subject: inout S
 
 // MARK: UIKit
 
-internal extension NSLayoutConstraint {
+extension NSLayoutConstraint {
 
     /// Apply layout priority in-place.
     ///

@@ -9,7 +9,7 @@ import UIKit
     // MARK: Hierarchy
 
     private lazy var introViewController: IntroViewController = {
-        IntroViewController()
+        IntroViewController(mode: .app)
     }()
 
     private lazy var mainViewController: MainViewController = {
@@ -34,12 +34,15 @@ import UIKit
         let snake = Sight.nocturnal(icons: ["🐍"], name: "Snake", dayEffect: .snake(day: true), nightEffect: .snake(day: false), magnetic: false)
         let bee = Sight.nocturnal(icons: ["🐝"], name: "Bee", dayEffect: .bee(day: true), nightEffect: .bee(day: false), magnetic: false)
 
+        introViewController.onInstructionSelected = { [unowned self] in
+            self.window!.rootViewController = self.mainViewController
+        }
+
         mainViewController.leftSight = human
         mainViewController.rightSights = [dog, cat, eagle, bull, snake, bee]
 
         window = UIWindow(frame: UIScreen.main.bounds)
-//        window!.rootViewController = introViewController
-        window!.rootViewController = mainViewController
+        window!.rootViewController = introViewController
         window!.makeKeyAndVisible()
 
         return true
