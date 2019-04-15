@@ -1,6 +1,6 @@
 ![](Artwork/banner.png)
 
-![](https://img.shields.io/badge/status-submitted-yellow.svg)
+![](https://img.shields.io/badge/status-accepted_🎉-brightgreen.svg)
 ![](https://img.shields.io/badge/swift-4.2-orange.svg)
 ![](https://img.shields.io/badge/license-CC--BY--SA--4.0-blue.svg)
 
